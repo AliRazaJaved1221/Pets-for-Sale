@@ -8,8 +8,8 @@ export default function LoginForm () {
         email: '',
         password: '',
     });
-    const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token')); // Track login status
-    const [showUploadModal, setShowUploadModal] = useState(false); // Modal state
+    const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+    const [showUploadModal, setShowUploadModal] = useState(false);
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
@@ -33,11 +33,11 @@ export default function LoginForm () {
             console.log("Login response data:", data);
 
             if (data && data.data) {
-                // Store user data in localStorage
+
                 localStorage.setItem('user', JSON.stringify(data.data));
-                localStorage.setItem('token', data.token); // Assume you also store token
-                setIsLoggedIn(true); // Update login state
-                setShowUploadModal(true); // Show modal on successful login
+                localStorage.setItem('token', data.token);
+                setIsLoggedIn(true); 
+                setShowUploadModal(true);
                 toast.success('Login successful!');
                 navigate('/Home');
             } else {
@@ -70,13 +70,13 @@ export default function LoginForm () {
     <div className="container-fluid">
     <div className='row'>
     <div className='col-lg-12 col-md-12 col-sm-12 colo'>
-    <Link to='/Home'><img src='./logo-pets.png' className='login_log' alt='Logo' /></Link>
+    <Link to='/Home'><img src='./logo-pets.png' className='login_log' style={{marginLeft:'-1rem'}} alt='Logo' /></Link>
     </div>
     <div className='col-lg-12 col-md-12 col-sm-12 colo'>
     <h2 className='login'>Login to continue</h2>
     </div>
     </div>
-    {!isLoggedIn && ( // Only show login form if not logged in
+    {!isLoggedIn && (
     <form autoComplete='off' style={{ marginTop: '2rem' }} onSubmit={handleSubmit}>
     <div className='row'>
     <div className='col-lg-12 col-md-12 col-sm-12 colo'>

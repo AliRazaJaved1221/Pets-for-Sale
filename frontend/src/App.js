@@ -15,6 +15,7 @@ import AdminDashboard from './Components/AdminDashboard';
 import Payment from './Components/Payment';
 import Review from './Components/Review';
 import Contact from './Components/Contact';
+import FAQs from './Components/FAQs';
 
 function App() {
   if (!navigator.onLine) {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/Payment" element={<Payment/>}></Route>
             <Route path="/Review" element={<Review/>}></Route>
             <Route path="/Contact" element={<Contact/>}></Route>
+            <Route path="/FAQs" element={<FAQs/>}></Route>
 
           </Routes>
       </Router>

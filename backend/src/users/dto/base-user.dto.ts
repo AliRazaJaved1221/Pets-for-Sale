@@ -25,14 +25,7 @@ export class BaseUser {
     example: '',
   })
   mobileContact: string;
-  @ApiProperty({
-    example: '',
-  })
-  confirmPassword?: string;
-  @ApiProperty({
-    example: '',
-  })
-  designation?: string;
+ 
   @ApiProperty({
     example: '',
   })

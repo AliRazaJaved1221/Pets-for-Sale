@@ -39,6 +39,7 @@ export class AuthService {
       username: user.username,
       mobileContact: user.mobileContact,
       password: user.password,
+      location: user.location,
       role:2,
     };
     return {

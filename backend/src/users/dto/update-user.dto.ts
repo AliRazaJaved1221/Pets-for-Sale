@@ -19,4 +19,8 @@ import { BaseUser } from './base-user.dto';
     @ApiProperty({ example: '',})
     @IsString()
     mobileContact?: string;
+
+    @ApiProperty({ example: '',})
+    @IsString()
+    location?: string;
   }

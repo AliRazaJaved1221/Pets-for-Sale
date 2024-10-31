@@ -24,17 +24,7 @@ export class SignUpDto {
   @IsNotEmpty({ message: 'mobileContact is required' })
   mobileContact: string;
 
-  //   @ApiProperty({
-  //     example: [],
-  //     type: [Number],
-  //   })
-  //   @IsOptional()
-  //   @IsArray({ message: 'specialities should be an array' })
-  //   @IsNumber({}, { each: true })
-  //   // @ArrayMinSize(1, { message: 'At least speciality is required' })
-  //   specialities: number[];
-
-  //   @ApiProperty({ enum: UserRoles, default: UserRoles.PATIENT })
-  //   @IsEnum(UserRoles, { message: 'User role should be one of: Patient, Doctor' })
-  //   userRole: UserRoles;
+  @ApiProperty({ example: 'Lahore',})
+  @IsString()
+  location: string;
 }

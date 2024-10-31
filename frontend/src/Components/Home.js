@@ -8,7 +8,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
   const [data, setData] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(""); // Single search query for both breed and age
+  const [searchQuery, setSearchQuery] = useState(""); 
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
   const navigate = useNavigate();
 
@@ -187,9 +187,9 @@ export default function Home() {
   <ul>
     <li><Link to="/Contact">Contact</Link></li>
     <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-    <li><Link to="/refund-policy">Refund Policy</Link></li>
-    <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
-    <li><Link to="/shipping">Shipping</Link></li>
+    <li><Link to="/FAQs">FAQs</Link></li>
+    <li><Link to="/">Terms & Conditions</Link></li>
+    <li><Link to="/">Shipping</Link></li>
   </ul>
   </div>
 
@@ -210,11 +210,6 @@ export default function Home() {
   </div>
   </div>
   </footer>
-
-
-
-
-
-    </div>
+</div>
   );
 }

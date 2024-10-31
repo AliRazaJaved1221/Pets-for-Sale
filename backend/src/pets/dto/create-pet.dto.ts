@@ -43,13 +43,25 @@ export class CreatePetDto {
 
   @ApiProperty({ example: '',})
   @IsString()
-  // @IsNotEmpty({ message: 'description is required' })
   @IsOptional()
   image: string;
 
-  @ApiProperty({ example: true })
-  @IsBoolean()
-  @IsNotEmpty({ message: 'isAlive is required' })
+  @ApiProperty({ example: '',})
+  @IsString()
+  @IsNotEmpty({ message: 'age is required' })
   @IsOptional()
-  isAlive: boolean;
+  uploaderEmail: string;
+
+  @ApiProperty({ example: '',})
+  @IsString()
+  @IsNotEmpty({ message: 'price is required' })
+  @IsOptional()
+  uploaderName: string;
+
+
+  @ApiProperty({ example: false })
+  @IsBoolean()
+  @IsNotEmpty({ message: 'This is required' })
+  @IsOptional()
+  isSold: boolean;
 }

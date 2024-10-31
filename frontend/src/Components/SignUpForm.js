@@ -8,7 +8,7 @@ const initialValues = {
     username: '',
     email: '',
     mobileContact: '',
-    password: ''
+    password: '',
 };
 
 const onSubmit = async (values, { resetForm }, navigate) => {
@@ -60,7 +60,7 @@ return (
     <div className="container-fluid">
         <div className='row'>
         <div className='col-lg-12 col-md-12 col-sm-12 colo'>
-        <Link to='/Home'><img src='./logo-pets.png' className='login_logo' alt='Logo' /></Link>
+        <Link to='/Home'><img src='./logo-pets.png' className='login_logo' style={{marginLeft:'-1rem'}} alt='Logo' /></Link>
         </div>
         <div className='col-lg-12 col-md-12 col-sm-12 colo'>
         <h2 className='signup'>Sign Up to continue</h2>
@@ -96,13 +96,12 @@ return (
         </div>
         <div className='row'>
         <div className='col-lg-12 col-md-12 col-sm-12 colo'>
-        <div><Link to='/' style={{marginLeft:'3.5rem', color: '#06048c', textDecoration: 'none' }}>Privacy and Terms & Conditions</Link></div>
+        <div><Link to='/' style={{color: '#06048c', textDecoration: 'none' }}>Privacy and Terms & Conditions</Link></div>
         </div>
         </div>
         <div className='row'>
-        <div className='col-lg-5 col-md-4'></div>                        
-        <div className='col-lg-7 col-md-8'>
-        <div><Link to='/LoginForm' style={{marginLeft:'5rem', color: 'black', fontWeight: 'bold', textDecoration: 'none' }}>Already Exists, Login</Link></div>
+        <div className='col-lg-12 col-md-12 colo'>
+        <div><Link to='/LoginForm' style={{ color: 'black', fontWeight: 'bold', textDecoration: 'none' }}>Already Exists, Login</Link></div>
         </div>
         </div>
         </form>

@@ -29,8 +29,8 @@ export class Pets {
   @Column({ nullable: true })
   image: string;
 
-  @Column({ default: true })
-  isAlive: boolean;
+  @Column({ default: false })
+  isSold: boolean;
   // @ManyToOne(() => Todo, (cat) => cat.pets)
   // cat: Todo;
  

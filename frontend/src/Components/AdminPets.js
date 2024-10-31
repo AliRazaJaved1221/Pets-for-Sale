@@ -44,7 +44,7 @@ export default function AdminPets() {
               <Link className="btn dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color:'white'}}>Admin</Link>
               <ul className="dropdown-menu">
                 <li><Link className="dropdown-item" to="/"><IoSettingsOutline style={{marginRight:'0.5rem'}}/>Settings</Link></li>
-                <li><Link className="dropdown-item" to="UserInfo"><FaRegUserCircle style={{marginRight:'0.5rem'}}/>Profile</Link></li>
+                <li><Link className="dropdown-item" to="/UserInfo"><FaRegUserCircle style={{marginRight:'0.5rem'}}/>Profile</Link></li>
                 <li><hr className="dropdown-divider"/></li>
                 <li><Link className="dropdown-item" to="/"><IoLogOutOutline style={{marginRight:'0.5rem'}}/>Logout</Link></li>
               </ul>

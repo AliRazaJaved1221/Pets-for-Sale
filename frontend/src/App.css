@@ -575,19 +575,7 @@ margin-right:2rem;
  .check-box {
   font-weight: 400;
  }
-.signup {
-  margin-left:1.3rem;
- }
- @media only screen and (max-width: 500px) {
-  .signup {
-    margin-left:2.2rem;
-   }
- }
- @media only screen and (min-width: 501px) and (max-width: 800px) {
-  .signup {
-    margin-left:16rem;
-   }
-}
+
 .login_btn{
   font-size: large;
   border-radius: 2rem;
@@ -600,7 +588,6 @@ margin-right:2rem;
   border: 1px #06048c;
 }
 .signup_btn {
-  margin-left: 3.5rem;
   font-size: large;
   border-radius: 2rem;
   padding: 0.7rem 5rem 0.5rem 5rem;
@@ -611,16 +598,7 @@ margin-right:2rem;
   margin-bottom: 1rem;
   border: 1px #06048c;
 }
-@media only screen and (max-width: 500px) {
-  .signup_btn {
-    margin-left:3rem;
-   }
- }
- @media only screen and (min-width: 501px) and (max-width: 800px) {
-  .signup_btn {
-    margin-left:2rem;
-   }
-}
+
 .update_logo {
   height:10rem;
   width: 15rem
@@ -1095,4 +1073,58 @@ width: 15rem
   width: 100%;
   margin-top: -7rem;
 }
-/* #06048c; */
+
+.faq-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px 1px rgb(117, 111, 111);;
+}
+
+.faq-heading {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #2A2A2A;
+    margin-bottom: 20px;
+}
+
+.faq-list {
+    list-style: none;
+    padding: 0;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.faq-question {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2A2A2A;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question:hover {
+    color: #00008B; /* Dark blue from the image */
+}
+
+.faq-icon {
+    font-size: 22px;
+    color: #00008B;
+}
+
+.faq-answer {
+    font-size: 16px;
+    color: #4A4A4A;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+

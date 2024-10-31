@@ -104,28 +104,29 @@ export default function PetDetails() {
             <Link to={{
     pathname: '/Review',
     state: {
-        userId: localStorage.getItem('userId'), // Assuming userId is stored in localStorage
-        petId: id // Pet ID from useParams
+        userId: localStorage.getItem('userId'),
+        petId: id
     }
 }} className='review-link'>
     Review here
 </Link>
-
         ) : (
             <p className="login-reminder">Please log in to submit a review.</p>
         )}
     </div>
 </div>
 
- <div className='col-lg-6'>
-    <h6 className='pet-pricing'>Type: {data.type}</h6>
-    <h6 className='pet-pricing'>Breed: {data.breed}</h6>
-    <h6 className='pet-pricing'>Color: {data.color}</h6>
-    <h6 className='pet-pricing'>Age: {data.age}</h6>
-    <h6 className='pet-pricing'>Price: {data.price}</h6>
-    <h6 className='pet-pricing'>Description:</h6>
-    <p className='pet-pricing2'>{data.description}</p>
+<div className='col-lg-6'>
+  <h6 className='pet-pricing'>Type: {data.type}</h6>
+  <h6 className='pet-pricing'>Breed: {data.breed}</h6>
+  <h6 className='pet-pricing'>Color: {data.color}</h6>
+  <h6 className='pet-pricing'>Age: {data.age}</h6>
+  <h6 className='pet-pricing'>Price: {data.price}</h6>
+  <h6 className='pet-pricing'>Uploaded by: {data.uploaderName} ({data.uploaderEmail})</h6>
+  <h6 className='pet-pricing'>Description:</h6>
+  <p className='pet-pricing2'>{data.description}</p>
 </div>
+
 </div>
 
 <div className='col-lg-12 colo' style={{ textAlign: 'center' }}>

@@ -11,6 +11,7 @@ const [initialValues, setInitialValues] = useState({
     email: '',
     mobileContact: '',
     role: '',
+    location:'',
     password: ''
     });
 
@@ -30,6 +31,7 @@ useEffect(() => {
                 email: parsedUser.email || '',
                 mobileContact: parsedUser.mobileContact || '',
                 role: parsedUser.role || '',
+                location: parsedUser.location || '',
                 password: parsedUser.password ||''
                 });
             console.log("parsedUser by Ali", parsedUser)
@@ -59,6 +61,7 @@ const formik = useFormik({
         email: values.email,
         mobileContact: values.mobileContact,
         role: values.role,
+        location: values.location,
         password: values.password
         };
 
@@ -92,7 +95,8 @@ const formik = useFormik({
                     email: updatedUser.email,
                     mobileContact: updatedUser.mobileContact,
                     role: updatedUser.role,
-                    password: updatedUser.password// Reset password after successful update
+                    location: updatedUser.location,
+                    password: updatedUser.password
                 });
 
             } catch (error) {
@@ -165,12 +169,17 @@ return (
      id='role' name='role' required readOnly />
     </div>
     </div>
-    <div className="row fild">
-    <div className="col-lg-6 col-md-12 col-sm-12 fild">
+    <div className="row">
+    <div className="col-lg-6 col-md-12 col-sm-12">
+    <input type="text" className="input-fields2 float1" onChange={formik.handleChange} value={formik.values.location} placeholder='Address'
+     id='location' name='location' required />
+    </div>
+    <div className="col-lg-6 col-md-12 col-sm-12">
     <input type="text" className="input-fields2" onChange={formik.handleChange} value={formik.values.password} placeholder='Password'
-      id='password' name='password' />
+     id='password' name='password' required readOnly />
     </div>
     </div>
+    
     <div className="row mt-3">
     <div className="col-lg-6 col-md-6">
         <button style={{ float: 'right' }} className="update_btn" type="submit">Update</button>

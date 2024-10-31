@@ -24,6 +24,8 @@ export class UserEntity {
   password: string;
   @Column({nullable:true})
   mobileContact: string;
+  @Column({nullable:true})
+  location: string;
   @Column()
   createdAt: Date;
   @Column({ nullable: true })
