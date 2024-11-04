@@ -120,10 +120,11 @@ background-color: #06048c;
   color: white;
   font-weight: bold;
   box-shadow: 3px 3px 1px 1px #000000;
+  background-color: #06048c;
 }
 
 .upload:hover {
-  box-shadow:  3px 3px 1px 1px white;
+  background-color: #130fd7;
 }
 
 .backg {
@@ -662,7 +663,7 @@ margin-right:2rem;
    }
 }
 .float1 {
-  float:right;
+  float: right!important;;
 }
 @media only screen and (max-width: 500px) {
   .float1 {
@@ -739,22 +740,24 @@ float: none;
 }
 .log-but{
   text-decoration: none;
-  margin-left: 2rem;
+  margin-left: 4em;
   border: none;
-  background-color: #91949f;
-  color: white;
+  color:white;
+  background-color: none!important;
+}
+.log-but:hover{
+  text-decoration: underline;
 }
 .log-but1{
   text-decoration: none;
   margin-left: 2rem;
   border: none;
-  background-color: white;
   color: black;
 }
-.log-but:hover{
-  color:black;
-  background-color: white;
+.log-but1:hover{
+  text-decoration:black underline;
 }
+
 .cart{
   font-size: x-large;
   font-weight: bolder;
@@ -844,11 +847,7 @@ float: none;
   align-items: center;
   justify-content: center;
 }
-.colo {  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .login_log {  
 height:10rem;
 width: 15rem
@@ -958,16 +957,9 @@ width: 15rem
 
 
 
-/* Contact Page Styles */
-.contact-page {
-  background: url('./bg2-wallpaper.jpg') center/cover no-repeat;
-  padding: 20px 0;
-}
 
 .contact-header {
   text-align: center;
-  padding: 40px 0;
-  color: white;
 }
 
 .contact-header h1 {
@@ -987,7 +979,6 @@ width: 15rem
 }
 
 .contact-form, .contact-info {
-  background-color: #efd4b7;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -998,7 +989,6 @@ width: 15rem
 
 .contact-form h3, .contact-info h3 {
   font-size: 24px;
-  color: #ffffff; 
   margin-bottom: 20px;
 }
 
@@ -1066,13 +1056,7 @@ width: 15rem
     height: 100vh;
     width: 100%;
 }
-.backg1 {
-  background-repeat: no-repeat;
-  background-color: #ffdab5;
-  background-size: cover;
-  width: 100%;
-  margin-top: -7rem;
-}
+
 
 .faq-container {
     max-width: 600px;
@@ -1128,3 +1112,46 @@ width: 15rem
     padding-left: 10px;
 }
 
+.container3 {
+ line-height: 2rem;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  color: black;
+}
+.heading3 {
+  color: black;
+}
+.subHeading3 {
+  color: black;
+}
+.updated3 {
+  color: black;
+}
+.input-fields2 {
+  font-family: math;
+  border-radius: 5px;
+  padding: 0.5rem 0rem 0.5rem 1rem;
+  margin-bottom: 1rem;
+  float: left;
+}
+.input-fields3 {
+  font-size: larger;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 1rem 1rem;
+  width: 100%;
+}
+.pic1 {
+  width: 50%;
+  float: left;
+}
+.pic2{
+  width: 50%;
+  float: right;
+}
+.colo {  
+  display: flex;
+  align-items: center;
+}

@@ -74,12 +74,19 @@ export default function Home() {
  <div className="custom3" style={{ marginTop: "4.7rem" }}>
   {isLoggedIn ? (
    <>
-  <button className="upload main-color" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">+ Upload Pet</button>
+  <button className="upload" data-bs-toggle="modal" data-bs-target="#petupload" type="submit">+ Upload Pet</button>
   <span>
-   <button className="log-but" onClick={handleLogout}>
+   <a className="log-but" onClick={handleLogout}>
    <FaSignOutAlt style={{ fontSize: "1.3rem" }} /> Logout
-  </button>
+  </a>
   </span>
+  <span style={{ marginLeft: "2rem", fontWeight: "bold" }}>|</span>
+  <span>
+  <Link className="log-sign" to="/UserInfo">
+  <FaUser style={{ fontSize: "1.3rem" }} /> Profile
+  </Link>
+  </span>
+ 
    </>
    ) : (
    <>
@@ -96,17 +103,11 @@ export default function Home() {
   </span>
   </>
     )}
-  <span style={{ marginLeft: "2rem", fontWeight: "bold" }}>|</span>
-  <span>
-  <Link className="log-sign" to="/UserInfo">
-  <FaUser style={{ fontSize: "1.3rem" }} /> Profile
-  </Link>
-  </span>
   </div>
   </div>
   </div>
   </header>
-<div className="backg1">
+<div>
   <div className="container">
   <div>
   <div className="dog1">
@@ -176,20 +177,16 @@ export default function Home() {
   <h4>Quick Links</h4>
   <ul>
     <li><Link to="/Home">Home</Link></li>
-    <li><Link to="">Cats/Kittens</Link></li>
-    <li><Link to="">Dogs</Link></li>
-    <li><Link to="">Birds</Link></li>
-    <li><Link to="">About</Link></li>
+
   </ul>
   </div>
   <div className="footer-section">
   <h4>Information</h4>
   <ul>
     <li><Link to="/Contact">Contact</Link></li>
-    <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+    <li><Link to="/Privacy">Privacy Policy</Link></li>
     <li><Link to="/FAQs">FAQs</Link></li>
-    <li><Link to="/">Terms & Conditions</Link></li>
-    <li><Link to="/">Shipping</Link></li>
+    <li><Link to="/TermsAndConditions">Terms & Conditions</Link></li>
   </ul>
   </div>
 

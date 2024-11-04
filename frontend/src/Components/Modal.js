@@ -1,4 +1,3 @@
-// Modal Component
 import React, { useState, useRef, useEffect } from "react";
 import { useFormik } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -54,7 +53,6 @@ export default function Modal() {
       toast.error("Please wait for the image to finish uploading.");
       return;
     }
-
     const req = {
       type: values.type,
       breed: values.breed,
@@ -63,9 +61,11 @@ export default function Modal() {
       price: values.price,
       description: values.description,
       image: imageurl,
-      uploaderId: user.id,
-      uploaderName: user.name,
+      ownerId: user.id,
+      uploaderName: user.username,
       uploaderEmail: user.email,
+      uploaderMobileContact: user.mobileContact,
+      UploaderLocation: user.location,
     };
 
     try {
@@ -75,7 +75,7 @@ export default function Modal() {
         body: JSON.stringify(req),
       });
       if (response.ok) {
-        toast("Pet is Uploaded");
+        toast.success("Pet is Uploaded");
         resetForm();
         setPreview(null);
         setImageUrl(null);
@@ -84,7 +84,6 @@ export default function Modal() {
         throw new Error("Failed to upload pet");
       }
     } catch {
-      toast.error("Error uploading pet.");
     }
   };
 
@@ -100,31 +99,34 @@ export default function Modal() {
     formik.setTouched({
       type: true, breed: true, color: true, age: true, price: true, description: true, image: true,
     });
-    if (Object.keys(formik.errors).length === 0) formik.handleSubmit();
-    else toast.error("Please fill out all required fields.");
+    if (Object.keys(formik.errors).length === 0 && imageurl) {
+      formik.handleSubmit();
+    } else {
+      toast.error("Please fill out all required fields and ensure image is uploaded.");
+    }
   };
 
   useEffect(() => {
+    const currentModal = modalRef.current;
     const handleModalHide = () => {
       formik.resetForm();
       setPreview(null);
       setImageUrl(null);
     };
-    modalRef.current?.addEventListener("hidden.bs.modal", handleModalHide);
-    return () => modalRef.current?.removeEventListener("hidden.bs.modal", handleModalHide);
+    currentModal?.addEventListener("hidden.bs.modal", handleModalHide);
+    return () => currentModal?.removeEventListener("hidden.bs.modal", handleModalHide);
   }, [formik]);
-
 
   return (
     <div>
       <form autoComplete="off" onSubmit={formik.handleSubmit}>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" ref={modalRef}>
-        <div className="modal-dialog">
-        <div className="modal-content main_modal">
-        <div className="row" style={{ marginTop: "3rem", marginLeft: "5rem", marginBottom: "2rem",}}>
-        <h2>Add New Pets</h2>
-        </div>
-        <div className="modal-body">
+        <div className="modal fade" id="petupload" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" ref={modalRef}>
+          <div className="modal-dialog">
+            <div className="modal-content main_modal">
+              <div className="row" style={{ marginTop: "3rem", marginLeft: "5rem", marginBottom: "2rem" }}>
+                <h2>Add New Pets</h2>
+              </div>
+              <div className="modal-body">
         <div className="row" style={{ marginRight: "4rem", marginLeft: "4rem", marginBottom: "10px",}}>
         <div className="col-lg-6">
         <label htmlFor="type" className="pett">Choose pet Type:</label>
@@ -198,18 +200,18 @@ export default function Modal() {
         </div>
         </div>
         </div>
-        <div className="modal-footer" style={{ marginRight: "5rem", border: "none", paddingBottom: "45px",}}>
-        <button type="button" style={{ backgroundColor: "#efefef", padding: "5px 40px" }} className="btn" data-bs-dismiss="modal">
-            Cancel
-        </button>
-        <button type="button" style={{padding: "5px 40px", backgroundColor: "#06048c", color: "white",}} className="btn" onClick={handleAddClick}>
-            Add
-        </button>
+              <div className="modal-footer" style={{ marginRight: "5rem", border: "none", paddingBottom: "45px" }}>
+                <button type="button" style={{ backgroundColor: "#efefef", padding: "5px 40px" }} className="btn" data-bs-dismiss="modal">
+                  Cancel
+                </button>
+                <button type="button" style={{ padding: "5px 40px", backgroundColor: "#06048c", color: "white" }} className="btn" onClick={handleAddClick}>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
-        </form>
+      </form>
     </div>
   );
 }

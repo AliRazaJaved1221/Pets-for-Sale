@@ -13,6 +13,7 @@ export class SignUpDto {
   @IsEmail({}, { message: 'email must be a valid email' })
   @IsNotEmpty({ message: 'email is required' })
   email: string;
+  
   @ApiProperty({ example: 'Ali0310',})
   @IsString()
   @IsOptional()

@@ -82,7 +82,7 @@ export default function PetDetails() {
     <div className='custom3' style={{ marginTop: '4.7rem' }}>
     {isLoggedIn ? (
      <>
-    <span><button className='log-but1' onClick={handleLogout}><FaSignOutAlt style={{ fontSize: '1.3rem' }} /> Logout</button></span>
+    <button  className='log-but1' onClick={handleLogout}><FaSignOutAlt style={{ fontSize: '1.3rem' }} /> Logout</button>
       </>
       ) : (
        <>
@@ -94,8 +94,15 @@ export default function PetDetails() {
     </div>
     </div>
 
+
+
+
+
+
+
+
     <div className='container row mt-5'>
-    <div className='col-lg-6 mt-4'>
+    <div className='pic1 mt-4'>
     <div className='colo'>
         <img src={data.image} className='pet_detail' alt='pet' />
     </div>
@@ -116,13 +123,16 @@ export default function PetDetails() {
     </div>
 </div>
 
-<div className='col-lg-6'>
+<div className='pic2'>
   <h6 className='pet-pricing'>Type: {data.type}</h6>
   <h6 className='pet-pricing'>Breed: {data.breed}</h6>
   <h6 className='pet-pricing'>Color: {data.color}</h6>
   <h6 className='pet-pricing'>Age: {data.age}</h6>
   <h6 className='pet-pricing'>Price: {data.price}</h6>
-  <h6 className='pet-pricing'>Uploaded by: {data.uploaderName} ({data.uploaderEmail})</h6>
+  <h6 className='pet-pricing'>Owner Name:{data.uploaderName}</h6>
+  <h6 className='pet-pricing'>Owner Email: {data.uploaderEmail}</h6>
+  <h6 className='pet-pricing'>Contact No: {data.uploaderMobileContact}</h6>
+  <h6 className='pet-pricing'>Location: {data.UploaderLocation}</h6>
   <h6 className='pet-pricing'>Description:</h6>
   <p className='pet-pricing2'>{data.description}</p>
 </div>

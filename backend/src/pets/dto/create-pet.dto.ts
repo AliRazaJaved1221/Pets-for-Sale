@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 //dto is used for data transfer and the code written here will be shown in the swagger
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsNotEmpty,  IsOptional, IsString } from 'class-validator';
+import { IsBoolean, IsNotEmpty,  IsNumber,  IsOptional, IsString } from 'class-validator';
 
 export class CreatePetDto {
  
   @ApiProperty({ example: '',})
   @IsString()
-  @IsNotEmpty({ message: 'breed is required' })
+  @IsNotEmpty({ message: 'type is required' })
   @IsOptional()
   type: string;
 
@@ -46,18 +46,35 @@ export class CreatePetDto {
   @IsOptional()
   image: string;
 
-  @ApiProperty({ example: '',})
+  @ApiProperty({ example: '',}) 
   @IsString()
-  @IsNotEmpty({ message: 'age is required' })
+  @IsNotEmpty({ message: 'email is required' })
   @IsOptional()
   uploaderEmail: string;
 
   @ApiProperty({ example: '',})
   @IsString()
-  @IsNotEmpty({ message: 'price is required' })
+  @IsNotEmpty({ message: 'name is required' })
   @IsOptional()
   uploaderName: string;
 
+  @ApiProperty({ example: '',})
+  @IsString()
+  @IsNotEmpty({ message: 'contact is required' })
+  @IsOptional()
+  uploaderMobileContact: string;
+
+  @ApiProperty({ example: '',})
+  @IsString()
+  @IsNotEmpty({ message: 'location is required' })
+  @IsOptional()
+  UploaderLocation: string;
+
+ @ApiProperty({example:'',})
+ @IsNumber()
+ @IsNotEmpty({message: 'id is required'})
+ @IsOptional()
+ ownerId: number;
 
   @ApiProperty({ example: false })
   @IsBoolean()

@@ -16,11 +16,13 @@ import Payment from './Components/Payment';
 import Review from './Components/Review';
 import Contact from './Components/Contact';
 import FAQs from './Components/FAQs';
+import Privacy from './Components/Privacy';
+import TermsAndConditions from './Components/TermsAndConditions';
 
 function App() {
-  if (!navigator.onLine) {
-    alert("The device is currently offline");
-}
+//   if (!navigator.onLine) {
+//     alert("The device is currently offline");
+// }
   return (
     <>
       <Router>
@@ -39,6 +41,8 @@ function App() {
             <Route path="/Review" element={<Review/>}></Route>
             <Route path="/Contact" element={<Contact/>}></Route>
             <Route path="/FAQs" element={<FAQs/>}></Route>
+            <Route path="/Privacy" element={<Privacy/>}></Route>
+            <Route path="TermsandConditions" element={<TermsAndConditions/>}></Route>
 
           </Routes>
       </Router>
