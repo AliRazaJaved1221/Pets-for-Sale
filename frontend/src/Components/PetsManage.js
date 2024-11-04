@@ -10,6 +10,7 @@ export default function PetsManage() {
         </div>
         <div className='colo'>
         <h2 className='userinfo'>Pets Management</h2>
+        <h3>sds</h3>
         </div>
     </div>
 </>
