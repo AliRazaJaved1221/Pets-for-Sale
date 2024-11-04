@@ -18,6 +18,7 @@ import Contact from './Components/Contact';
 import FAQs from './Components/FAQs';
 import Privacy from './Components/Privacy';
 import TermsAndConditions from './Components/TermsAndConditions';
+import PetsManage from './Components/PetsManage';
 
 function App() {
 //   if (!navigator.onLine) {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/FAQs" element={<FAQs/>}></Route>
             <Route path="/Privacy" element={<Privacy/>}></Route>
             <Route path="TermsandConditions" element={<TermsAndConditions/>}></Route>
+            <Route path="/PetsManage" element={<PetsManage/>}></Route>
 
           </Routes>
       </Router>

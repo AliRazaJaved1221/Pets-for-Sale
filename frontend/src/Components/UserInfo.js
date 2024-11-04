@@ -140,12 +140,15 @@ const formik = useFormik({
     };
 
 return (
-<div className="container-fluid bgg">
-    <div className="row">
-    <div className="col-lg-5 col-md-0 col-sm-0"></div>
-    <div className="col-lg-7 col-md-12 col-sm-12">
-        <Link to='/Home'><img src='./logo-white.png' className='update_logo' alt='Logo' /></Link>
+<div className="container-fluid">
+    <div>
+    <div className="col-lg-12 col-md-12 col-sm-12">
+        <div className='colo'>
+        <Link to='/Home'><img src='./logo-pets.png' className='update_logo' alt='Logo' /></Link>
+        </div>
+        <div className='colo'>
         <h2 className='userinfo'>Profile Management</h2>
+        </div>
     </div>
     </div>
     <form style={{ marginTop: '2rem' }} onSubmit={formik.handleSubmit}>
@@ -179,7 +182,12 @@ return (
      id='password' name='password' required readOnly />
     </div>
     </div>
-    
+    <div className="row">
+    <div className="col-lg-6 col-md-12 col-sm-12" style={{float:'right', display:'flex', justifyContent:'center', marginLeft:'9rem'}}>
+    <Link to='/PetsManage' style={{color:'black', fontWeight:'bold', textDecoration:'none'}}>Manage Pets...</Link>
+    </div>
+    <div className="col-lg-6 col-md-12 col-sm-12"></div>
+    </div>
     <div className="row mt-3">
     <div className="col-lg-6 col-md-6">
         <button style={{ float: 'right' }} className="update_btn" type="submit">Update</button>

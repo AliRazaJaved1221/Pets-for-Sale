@@ -268,13 +268,21 @@ input[type="file"] {
 }
 
 .pet_detail {
-  width: 50vh;
   height: 40vh;
-  border: 5px solid #868686;
+  width: 50vh; ;
   float: right;
+  overflow: hidden;
 }
-.pet_detail:hover{
-  border:5px solid black;
+/* Image styling with zoom effect */
+.pet_detail img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease; /* Smooth zoom transition */
+}
+
+/* Zoom effect on hover */
+.pet_detail:hover img {
+  transform: scale(1.2); /* Adjust scale as needed for zoom */
 }
 .pet-pricing {
   padding: 5px;
@@ -301,7 +309,7 @@ input[type="file"] {
 }
 
 .upload2:hover {
-  box-shadow: 0 12px 16px 0 rgba(75, 28, 247, 0.24), 3px 3px 1px 1px #033d94;
+  background-color: #130fd7;
 }
 
 .App-link {
@@ -624,6 +632,9 @@ margin-right:2rem;
   margin-bottom: 1rem;
   border: 1px #06048c;
 }
+.update_btn:hover {
+  background-color: #130fd7;
+}
 @media only screen and (max-width: 500px) {
   .update_btn {
     margin-left:1rem;
@@ -644,6 +655,9 @@ margin-right:2rem;
   background-color: #cc1919;
   margin-bottom: 1rem;
   border: 1px #06048c;
+}
+.delete_btn:hover{
+    background-color: #f52222;
 }
 @media only screen and (max-width: 500px) {
   .delete_btn {
@@ -669,8 +683,6 @@ float: none;
  }
 }
 .userinfo {
-  margin-left:1rem;
-  color:white;
   font-weight: 700;
  }
  @media only screen and (max-width: 500px) {
@@ -705,11 +717,14 @@ float: none;
   color: white;
   font-weight: bold;
   margin-left: 2rem;
-  box-shadow: 3px 3px 1px 1px #033d94;
+  box-shadow: 3px 3px 1px 1px #f52222;
   background-color: #cc1919;
   justify-content: center;
   text-align: center;
   margin-top: 2rem;
+}
+.delete_pet:hover {
+  background-color: #f52222;
 }
 .dlt_icon{
   color: red;
@@ -746,6 +761,7 @@ float: none;
   margin-left: 2rem;
   border: none;
   color: black;
+  background-color: white;
 }
 .log-but1:hover{
   text-decoration:black underline;
@@ -1042,15 +1058,6 @@ width: 15rem
   align-items: center;
   justify-content: center;
 }
-.bgg {
-    background-image: url(./bg-wallpaper.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-}
-
-
 .faq-container {
     max-width: 600px;
     margin: 0 auto;
@@ -1147,6 +1154,7 @@ width: 15rem
 .colo {  
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .colo1{
   display: flex;
@@ -1155,5 +1163,9 @@ width: 15rem
 .colo2{
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.colo3 {  
+  display: flex;
   align-items: center;
 }

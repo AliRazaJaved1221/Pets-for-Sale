@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { CiShoppingCart } from "react-icons/ci";
 import { MdLocalShipping } from "react-icons/md";
 import { FaStore } from "react-icons/fa";
 import { toast, ToastContainer } from 'react-toastify';
@@ -53,17 +52,13 @@ export default function Payment() {
             <ToastContainer /> 
             <div className='container'>
                 <div className='row'>
-                    <div className='col-lg-11'>
-                        <div className="custom1">
-                            <Link to='/Home'><img src='/logo-pets.png' style={{ height: '7rem', width: '10rem', marginTop: '1rem' }} alt='Logo' /></Link>
+                    <div className='col-lg-12' style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                        <div >
+                            <Link to='/Home'><img src='/logo-pets.png' style={{ height: '10rem', width: '13rem'}} alt='Logo' /></Link>
                         </div>
-                    </div>
-                    <div className='col-lg-1 cart mt-3'>
-                        <CiShoppingCart />
                     </div>
                 </div>
             </div>
-            <hr />
             <form>
                 <div className='container'>
                     <div className='row'>

@@ -99,7 +99,9 @@ export default function PetDetails() {
     <div className='container row mt-5' style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
     <div className='pic1'>
     <div className='colo1'>
-        <img src={data.image} className='pet_detail' alt='pet' />
+        <div className='pet_detail'>
+        <img src={data.image} alt='pet' />
+        </div>
     </div>
     <div className='colo2'>
         {isLoggedIn ? (
@@ -118,7 +120,7 @@ export default function PetDetails() {
     </div>
 </div>
 
-<div className='pic2'>
+<div className='pic2' style={{marginTop:'-2rem'}}>
 <div className='row'>
     <div className='pic1'>
     <h4 className='pet-pricing'>{data.breed}</h4>
@@ -126,14 +128,12 @@ export default function PetDetails() {
     <h6 className='pet-pricing'>Owner Name:{data.uploaderName}</h6>
     <h6 className='pet-pricing'>Contact No: {data.uploaderMobileContact}</h6>
     <h6 className='pet-pricing'>Location: {data.UploaderLocation}</h6>
-
-
     </div>
+
     <div className='pic2' style={{marginTop:'3rem'}}>
     <h6 className='pet-pricing'>Color: {data.color}</h6>
     <h6 className='pet-pricing'>Age: {data.age}</h6>
-    <h6 className='pet-pricing'>Owner Email: {data.uploaderEmail}</h6>
-
+    <h6 className='pet-pricing'>Owner Email: <a href={`mailto:${data.uploaderEmail}`} style={{textDecoration:'none'}}>{data.uploaderEmail}</a></h6>
     </div>
 </div>
   {/* <h6 className='pet-pricing'>Type: {data.type}</h6> */}
@@ -141,7 +141,7 @@ export default function PetDetails() {
 </div>
 
 </div>
-<div className='col-lg-12' style={{justifyContent:'center', alignItems:'center', display:'flex', marginTop:'1rem' }}>
+<div className='col-lg-12 colo2' style={{marginTop:'1rem' }}>
 <button className='upload2 main-color' type='submit' onClick={handleBuyNow}>Buy Now</button>
 {isLoggedIn && (
 <button className='delete_pet' onClick={deletePet}>Delete</button>
