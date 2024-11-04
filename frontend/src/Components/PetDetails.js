@@ -72,7 +72,8 @@ export default function PetDetails() {
     <div>
     <ToastContainer />
     <div className='container'>
-    <div className='container-fluid'>
+    <div className='row'>
+    <div className='container-fluid' style={{marginTop:'-1rem'}}>
     <div className="custom1">
         <Link to='/Home'><img src='/logo-pets.png' style={{ height: '10rem', width: '15rem', marginTop: '1rem' }} alt='Logo' /></Link>
     </div>
@@ -93,20 +94,14 @@ export default function PetDetails() {
         )}
     </div>
     </div>
+    </div>
 
-
-
-
-
-
-
-
-    <div className='container row mt-5'>
-    <div className='pic1 mt-4'>
-    <div className='colo'>
+    <div className='container row mt-5' style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+    <div className='pic1'>
+    <div className='colo1'>
         <img src={data.image} className='pet_detail' alt='pet' />
     </div>
-    <div className='colo'>
+    <div className='colo2'>
         {isLoggedIn ? (
             <Link to={{
     pathname: '/Review',
@@ -124,22 +119,29 @@ export default function PetDetails() {
 </div>
 
 <div className='pic2'>
-  <h6 className='pet-pricing'>Type: {data.type}</h6>
-  <h6 className='pet-pricing'>Breed: {data.breed}</h6>
-  <h6 className='pet-pricing'>Color: {data.color}</h6>
-  <h6 className='pet-pricing'>Age: {data.age}</h6>
-  <h6 className='pet-pricing'>Price: {data.price}</h6>
-  <h6 className='pet-pricing'>Owner Name:{data.uploaderName}</h6>
-  <h6 className='pet-pricing'>Owner Email: {data.uploaderEmail}</h6>
-  <h6 className='pet-pricing'>Contact No: {data.uploaderMobileContact}</h6>
-  <h6 className='pet-pricing'>Location: {data.UploaderLocation}</h6>
-  <h6 className='pet-pricing'>Description:</h6>
+<div className='row'>
+    <div className='pic1'>
+    <h4 className='pet-pricing'>{data.breed}</h4>
+    <h6 className='pet-pricing'>Price: {data.price}</h6>
+    <h6 className='pet-pricing'>Owner Name:{data.uploaderName}</h6>
+    <h6 className='pet-pricing'>Contact No: {data.uploaderMobileContact}</h6>
+    <h6 className='pet-pricing'>Location: {data.UploaderLocation}</h6>
+
+
+    </div>
+    <div className='pic2' style={{marginTop:'3rem'}}>
+    <h6 className='pet-pricing'>Color: {data.color}</h6>
+    <h6 className='pet-pricing'>Age: {data.age}</h6>
+    <h6 className='pet-pricing'>Owner Email: {data.uploaderEmail}</h6>
+
+    </div>
+</div>
+  {/* <h6 className='pet-pricing'>Type: {data.type}</h6> */}
   <p className='pet-pricing2'>{data.description}</p>
 </div>
 
 </div>
-
-<div className='col-lg-12 colo' style={{ textAlign: 'center' }}>
+<div className='col-lg-12' style={{justifyContent:'center', alignItems:'center', display:'flex', marginTop:'1rem' }}>
 <button className='upload2 main-color' type='submit' onClick={handleBuyNow}>Buy Now</button>
 {isLoggedIn && (
 <button className='delete_pet' onClick={deletePet}>Delete</button>

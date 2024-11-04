@@ -277,24 +277,17 @@ input[type="file"] {
   border:5px solid black;
 }
 .pet-pricing {
-  border-bottom: 3px solid #868686;
   padding: 5px;
   width: 15rem;
   margin-top: 1rem;
 }
-.pet-pricing:hover{
-  border-bottom: 3px solid black;
-}
+
 
 .pet-pricing2 {
-  border-bottom: 3px solid #868686;
   padding: 5px;
-  width: 25rem;
   margin-top: 1rem;
 }
-.pet-pricing2:hover{
-  border-bottom:3px solid black;
-}
+
 .upload2 {
   padding: 0.6rem 4rem;
   border-radius: 20px;
@@ -1144,14 +1137,23 @@ width: 15rem
   width: 100%;
 }
 .pic1 {
-  width: 50%;
+  width: 50%!important;
   float: left;
 }
 .pic2{
-  width: 50%;
+  width: 50%!important;
   float: right;
 }
 .colo {  
   display: flex;
+  align-items: center;
+}
+.colo1{
+  display: flex;
+  justify-content: center;
+}
+.colo2{
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
