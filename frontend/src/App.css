@@ -751,7 +751,7 @@ float: none;
   margin-left: 4em;
   border: none;
   color:white;
-  background-color: none!important;
+  background-color: #96959b!important;
 }
 .log-but:hover{
   text-decoration: underline;

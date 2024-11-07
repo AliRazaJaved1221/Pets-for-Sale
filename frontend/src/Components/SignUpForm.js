@@ -12,7 +12,6 @@ const initialValues = {
 };
 
 const onSubmit = async (values, { resetForm }, navigate) => {
-    debugger;
     const req = {
         username: values.username,
         email: values.email,

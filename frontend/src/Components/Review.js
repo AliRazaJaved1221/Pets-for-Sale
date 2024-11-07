@@ -4,34 +4,34 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Review() {
-  const location = useLocation(); // To get state passed from PetDetails
-  const { userId: initialUserId, petId: initialPetId } = location.state || {}; // Destructure userId and petId from location.state
+  
+  const location = useLocation();
+  const { petId } = location.state || {};  // Getting petId from route state
+
+  const user = JSON.parse(localStorage.getItem("user")) || {}; // Fetching user from localStorage
 
   const [formData, setFormData] = useState({
-    petId: initialPetId || "", // Set initial value from location.state
-    userId: initialUserId || "", // Set initial value from location.state
+    petId: petId || "", 
+    userId: user.id || "", 
     feedback: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
     setFormData({
       ...formData,
-      [name]:
-        name === "petId" || name === "userId" ? parseInt(value, 10) : value,
+      [name]: value,
     });
   };
-
+console.log('meri jan', formData)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the petId and userId are valid integers
-    if (isNaN(formData.userId) || isNaN(formData.petId)) {
-      toast.error("User ID and Pet ID must be valid numbers.");
+    // Validating that userId and petId are present
+    if (!formData.userId || !formData.petId) {
+      toast.error("User ID and Pet ID are required.");
       return;
     }
-
     try {
       const response = await fetch("http://localhost:5000/api/reviews", {
         method: "POST",
@@ -47,8 +47,8 @@ export default function Review() {
       if (response.ok) {
         toast.success("Review submitted successfully!");
         setFormData({
-          petId: "",
-          userId: "",
+          petId:'' ,
+          userId: user.id,
           feedback: "",
         });
       } else {

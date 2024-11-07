@@ -4,12 +4,10 @@ import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateReviewDto {
   @ApiProperty({example: ''})
-  @IsNumber()
   @IsNotEmpty({ message: 'UserId is required' })
   userId: any;
 
   @ApiProperty({example: ''})
-  @IsNumber()
   @IsNotEmpty({ message: 'PetId is required' })
   petId: any;
 

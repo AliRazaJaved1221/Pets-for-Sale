@@ -105,15 +105,15 @@ export default function PetDetails() {
     </div>
     <div className='colo2'>
         {isLoggedIn ? (
-            <Link to={{
-    pathname: '/Review',
-    state: {
-        userId: localStorage.getItem('userId'),
-        petId: id
-    }
-}} className='review-link'>
-    Review here
-</Link>
+            <Link
+            to={{
+              pathname: '/Review',
+              state: { petId: id, userId: localStorage.getItem('userId') }
+            }}
+            className='review-link'
+          >
+            Review here
+          </Link>
         ) : (
             <p className="login-reminder">Please log in to submit a review.</p>
         )}
@@ -121,9 +121,9 @@ export default function PetDetails() {
 </div>
 
 <div className='pic2' style={{marginTop:'-2rem'}}>
+<h4 className=''>{data.breed}</h4>
 <div className='row'>
     <div className='pic1'>
-    <h4 className='pet-pricing'>{data.breed}</h4>
     <h6 className='pet-pricing'>Price: {data.price}</h6>
     <h6 className='pet-pricing'>Owner Name:{data.uploaderName}</h6>
     <h6 className='pet-pricing'>Contact No: {data.uploaderMobileContact}</h6>

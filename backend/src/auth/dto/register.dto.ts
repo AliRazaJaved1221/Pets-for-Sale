@@ -26,6 +26,5 @@ export class SignUpDto {
   mobileContact: string;
 
   @ApiProperty({ example: 'Lahore',})
-  @IsString()
   location: string;
 }

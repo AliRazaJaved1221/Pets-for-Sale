@@ -76,9 +76,9 @@ export default function Home() {
    <>
   <button className="upload" data-bs-toggle="modal" data-bs-target="#petupload" type="submit">+ Upload Pet</button>
   <span>
-   <a className="log-but" onClick={handleLogout}>
+   <button className="log-but" onClick={handleLogout}>
    <FaSignOutAlt style={{ fontSize: "1.3rem" }} /> Logout
-  </a>
+  </button>
   </span>
   <span style={{ marginLeft: "2rem", fontWeight: "bold" }}>|</span>
   <span>
@@ -137,10 +137,10 @@ export default function Home() {
   <div className="col-lg-3 col-md-4 mt-5" key={item.id}>
   <Link style={{ textDecoration: "none" }} to={`/pet/${item.id}`} className="card pets-card main-color">
   <img className="pets-card2" src={item.image} alt="Pet" />
-  <h5>Breed: {item.breed}</h5>
-  <p>Color: {item.color}</p>
-  <p>Age: {item.age}</p>
-  <p>Price: {item.price}</p>
+  <h5 style={{marginTop:'1rem', marginBottom:'1rem'}}>{item.breed}</h5>
+  <p >Color: {item.color}</p>
+  <p >Age: {item.age}</p>
+  <p >Price: {item.price}</p>
   <p style={{ width: "100%", height: "50px", overflow: "hidden" }}>Description: {item.description}</p>
   </Link>
   </div>
