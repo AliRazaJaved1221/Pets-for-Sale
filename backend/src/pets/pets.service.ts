@@ -17,6 +17,7 @@ export class PetsService {
     @InjectRepository(Review)
     private reviewRepository: Repository<Review>,
   ) {}
+  
   async create(createPetDto: CreatePetDto): Promise<Pets> {
     const userData = await this.petsRepository.create(createPetDto);
 
@@ -90,4 +91,5 @@ export class PetsService {
       .where('id = :id', { id })
       .execute();
   }
+
 }

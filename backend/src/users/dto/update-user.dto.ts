@@ -1,6 +1,6 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsOptional, IsString } from 'class-validator';
 import { BaseUser } from './base-user.dto';
   
   export class UpdateUserDto extends PartialType(BaseUser) {
@@ -22,5 +22,6 @@ import { BaseUser } from './base-user.dto';
 
     @ApiProperty({ example: '',})
     @IsString()
+    @IsOptional()
     location?: string;
   }

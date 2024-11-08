@@ -52,7 +52,10 @@ export class UsersService {
       .execute();
   }
 
-
+  async getUserCount(): Promise<number> {
+    return this.userRepository.count();
+  }
+  
   async update(id: number, updateUserDto: UpdateUserDto): Promise<UserEntity> {
     const existingUser = await this.findOne(id);
     // Cast updateUserDto to DeepPartial<User>

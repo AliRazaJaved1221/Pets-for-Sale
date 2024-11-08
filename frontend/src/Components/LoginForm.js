@@ -77,7 +77,7 @@ export default function LoginForm () {
     </div>
     </div>
     {!isLoggedIn && (
-    <form autoComplete='off' style={{ marginTop: '2rem' }} onSubmit={handleSubmit}>
+    <form autoComplete='on' style={{ marginTop: '2rem' }} onSubmit={handleSubmit}>
     <div className='row'>
     <div className='col-lg-12 col-md-12 col-sm-12 colo'>
     <input type="email" name="email" className='input-fields2' value={credentials.email} onChange={handleInputChange} placeholder='Email' required/>

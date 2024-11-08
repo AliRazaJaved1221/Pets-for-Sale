@@ -68,7 +68,7 @@ export class PetsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.petsService.findOne(+id);
   }
 
@@ -82,4 +82,5 @@ export class PetsController {
     this.petsService.remove(+id);
     return { message: 'pet removed successfully' };
   }
+
 }

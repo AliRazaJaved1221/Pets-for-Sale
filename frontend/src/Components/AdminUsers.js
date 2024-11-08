@@ -22,11 +22,29 @@ export default function AdminUsers() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [mobileContact, setMobileContact] = useState("");
+  const [location, setLocation] = useState("");
   const [password, setPassword] = useState("");
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+  const [userCount, setUserCount] = useState(0);
 
   const navigate = useNavigate();
+  useEffect(() => {
+    const fetchUserCount = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/api/users/count`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const count = await response.json();
+        setUserCount(count);
+      } catch (error) {
+        console.error('Error fetching user count:', error);
+      }
+    };
+  
+    fetchUserCount();
+  }, []);
 
   useEffect(() => {
     const fetchInfo = async () => {
@@ -67,6 +85,7 @@ export default function AdminUsers() {
     setUsername(user.username);
     setEmail(user.email);
     setMobileContact(user.mobileContact);
+    setLocation(user.location);
     setPassword(user.password);
     setIsUpdateModalOpen(true);
   };
@@ -76,11 +95,12 @@ export default function AdminUsers() {
     setUsername("");
     setEmail("");
     setMobileContact("");
+    setLocation("");
     setPassword("");
   };
 
   const handleUpdate = () => {
-    const updatedData = { username, email, mobileContact, password };
+    const updatedData = { username, email, mobileContact, location, password };
 
     fetch(`http://localhost:5000/api/users/${selectedUser.id}`, {
       method: 'PATCH',
@@ -158,9 +178,9 @@ export default function AdminUsers() {
             </Link>
             <hr style={{ marginTop: '3rem' }} />
           </div>
-          <div style={{ marginLeft: '2rem' }}>
+          <div style={{marginLeft:'2rem'}}>
             <h3>Registered Users</h3>
-            <div style={{ height: '60vh', overflowY: 'auto' }}>
+            <div style={{ height: 'auto', overflowY: 'auto', marginBottom:'3rem'}}>
               <table className="table">
                 <thead>
                   <tr>
@@ -189,6 +209,11 @@ export default function AdminUsers() {
               </table>
             </div>
           </div>
+          <div style={{marginLeft:'2rem'}}>
+          <h4>No. of Registered Users: {userCount}</h4>
+            <div style={{ overflowY: 'auto' }}>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -212,6 +237,10 @@ export default function AdminUsers() {
                 <div className="mb-3">
                   <label className="form-label">Mobile Contact</label>
                   <input type="text" className="form-control" value={mobileContact} onChange={(e) => setMobileContact(e.target.value)} />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Location</label>
+                  <input type="text" className="form-control" value={location} onChange={(e) => setLocation(e.target.value)} />
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Password</label>
@@ -239,6 +268,7 @@ export default function AdminUsers() {
                 <p><strong>Username: </strong>{selectedUser?.username}</p>
                 <p><strong>Email: </strong>{selectedUser?.email}</p>
                 <p><strong>Mobile Contact: </strong>{selectedUser?.mobileContact}</p>
+                <p><strong>Location: </strong>{selectedUser?.location}</p>
                 <p><strong>Password: </strong>{selectedUser?.password}</p>
               </div>
               <div className="modal-footer"  style={{backgroundColor:'#0758d3'}}>
