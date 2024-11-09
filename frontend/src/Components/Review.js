@@ -27,7 +27,6 @@ console.log('meri jan', formData)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validating that userId and petId are present
     if (!formData.userId || !formData.petId) {
       toast.error("User ID and Pet ID are required.");
       return;
@@ -101,8 +100,8 @@ console.log('meri jan', formData)
               onChange={handleInputChange}
               placeholder="Pet ID"
               required
-              readOnly
             />
+
           </div>
         </div>
         <div className="row">

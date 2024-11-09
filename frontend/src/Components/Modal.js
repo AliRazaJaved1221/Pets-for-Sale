@@ -6,12 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const validate = (values) => {
   let errors = {};
-  if (!values.type) errors.type = "Required";
-  if (!values.breed) errors.breed = "Required";
-  if (!values.color) errors.color = "Required";
-  if (!values.age) errors.age = "Required";
-  if (!values.price) errors.price = "Required";
-  if (!values.description) errors.description = "Required";
+
   return errors;
 };
 
@@ -204,7 +199,7 @@ export default function Modal() {
                 <button type="button" style={{ backgroundColor: "#efefef", padding: "5px 40px" }} className="btn" data-bs-dismiss="modal">
                   Cancel
                 </button>
-                <button type="button" style={{ padding: "5px 40px", backgroundColor: "#06048c", color: "white" }} className="btn" onClick={handleAddClick}>
+                <button type="button" className="btn2" onClick={handleAddClick}>
                   Add
                 </button>
               </div>

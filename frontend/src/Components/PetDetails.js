@@ -105,15 +105,15 @@ export default function PetDetails() {
     </div>
     <div className='colo2'>
         {isLoggedIn ? (
-            <Link
-            to={{
-              pathname: '/Review',
-              state: { petId: id, userId: localStorage.getItem('userId') }
-            }}
-            className='review-link'
-          >
-            Review here
-          </Link>
+           <Link
+           to={{
+             pathname: '/Review',
+             state: { petId: id, userId: localStorage.getItem('userId') }
+           }}
+           className='review-link'
+         >
+           Review here
+         </Link>
         ) : (
             <p className="login-reminder">Please log in to submit a review.</p>
         )}
