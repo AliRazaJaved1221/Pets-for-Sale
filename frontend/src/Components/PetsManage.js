@@ -124,7 +124,7 @@ export default function PetDetails() {
                 <div className='container row mt-5'>
                     <div className="row">
                         {data.map((pet) => (
-                            <div className="col-lg-12 mt-3" key={pet.id}>
+                            <div className="col-lg-12" key={pet.id}>
                                 <div className="card pets-card-dum">
                                     <div className='row'>
                                         <div style={{ width: '30%' }}>
