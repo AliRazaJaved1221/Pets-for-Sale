@@ -7,7 +7,7 @@ export default function Review() {
   
   const location = useLocation();
   const { petId } = location.state || {};  // Getting petId from route state
-
+  console.log(location.state)
   const user = JSON.parse(localStorage.getItem("user")) || {}; // Fetching user from localStorage
 
   const [formData, setFormData] = useState({

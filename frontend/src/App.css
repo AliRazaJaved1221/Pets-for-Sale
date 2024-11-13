@@ -201,6 +201,13 @@ margin-top: 3rem;
   transition: transform 1s;
   margin-bottom:3rem;
 }
+.pets-card-dum {
+  border-radius: 0px!important;
+  transition: transform 1s;
+  margin-bottom:3rem;
+  height: 20vh!important;
+}
+
 .pets-card_admin {
   height: 7rem;
   border-radius: 5px;
@@ -217,6 +224,12 @@ margin-top: 3rem;
   -webkit-transform: scale(1.1);
   /* Safari 3-8 */
   transform: scale(1.1);
+}
+.pets-card-dum:hover {
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  border-right: 2px solid grey;
+  border-left: 2px solid grey;
 }
 /* .pets-card2 {
   height:33vh;
@@ -240,7 +253,15 @@ margin-top: 3rem;
 .pets-card2:hover {
   transform: scale(0.9);
 }
+.pets-card2-dum {
+  width: 15vw;
+  transition: transform 0.5s ease;
+  height:19.8vh;
+}
 
+.pets-card2-dum:hover {
+  transform: scale(0.9);
+}
 .modal-inputfields {
   padding: 10px 25px;
   margin-bottom: 10px;
@@ -271,6 +292,12 @@ input[type="file"] {
   height: 40vh;
   width: 50vh; ;
   float: right;
+  overflow: hidden;
+}
+.pet_detail_dum {
+  height: 15vh;
+  width: 20vh; ;
+  float: left;
   overflow: hidden;
 }
 /* Image styling with zoom effect */
@@ -732,7 +759,16 @@ float: none;
   border: none;
   font-size:larger;
 }
-
+.dlt_icon-dum{
+  color: red;
+  background-color: white;
+  border: none;
+  font-size:x-large;
+  margin-left: 2rem;
+}
+.dlt_icon-dum:hover{
+color: rgb(159, 5, 5)
+}
 .dlt_icon2{
   color: green;
   background-color: white;
@@ -740,7 +776,16 @@ float: none;
   font-size:larger;
   margin-left: 0.5rem;
 }
-
+.dlt_icon2-dum{
+  color: green;
+  background-color: white;
+  border: none;
+  font-size:x-large;
+  margin-left: 3.5rem;
+}
+.dlt_icon2-dum:hover{
+  color: rgba(5, 215, 5, 0.829);
+}
 .dlt_icon3{
   color: blue;
   background-color: white;
@@ -1146,9 +1191,25 @@ width: 15rem
   padding: 1rem 1rem;
   width: 100%;
 }
+.input-fields4 {
+  border: 2px solid #979595;
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem;
+  width: 100%;
+}
+.input-fields5 {
+  border: 2px solid #979595;
+  border-radius: 5px;
+  height: 10rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
 .pic1 {
   width: 50%!important;
   float: left;
+}
+.pic1_dum {
+  width: 80%!important;
 }
 .pic2{
   width: 50%!important;
@@ -1198,4 +1259,48 @@ width: 15rem
 .btn2:hover {
   background-color: #130fd7;
   border: 1px solid #130fd7;
+}
+.modal1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content1 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%;
+}
+
+.close1 {
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.close1:hover{
+  background-color: black;
+  color: white;
+  font-size: 30px;
+}
+
+.button_up  {
+  background-color: #07d011 ;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.button_up:hover {
+  background-color: #07830b;
 }

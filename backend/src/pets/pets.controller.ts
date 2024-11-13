@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {Controller, Get,Post,Body,Patch,Param,Delete,Query,Req,Optional,HttpCode,} from '@nestjs/common';
+import {Controller, Get,Post,Body,Patch,Param,Delete,Query,Req,Optional,HttpCode, ParseIntPipe, HttpException, HttpStatus, ValidationPipe, UsePipes,} from '@nestjs/common';
 import { PetsService } from './pets.service';
 import { CreatePetDto } from './dto/create-pet.dto';
 import { UpdatePetDto } from './dto/update-pet.dto';
@@ -67,20 +67,73 @@ export class PetsController {
     }
   }
 
+
+  // Find pet by ID with ParseIntPipe to ensure id is a valid number
   @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.petsService.findOne(+id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.petsService.findOne(id);
   }
 
+  // Update pet by ID with ParseIntPipe to ensure id is a valid number
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePetDto: UpdatePetDto) {
-    return this.petsService.update(+id, updatePetDto);
+  update(@Param('id', ParseIntPipe) id: number, @Body() updatePetDto: UpdatePetDto) {
+    return this.petsService.update(id, updatePetDto);
   }
 
+  // Remove pet by ID with ParseIntPipe to ensure id is a valid number
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    this.petsService.remove(+id);
-    return { message: 'pet removed successfully' };
+  remove(@Param('id', ParseIntPipe) id: number) {
+    this.petsService.remove(id);
+    return { message: 'Pet removed successfully' };
   }
 
+  // Fetch pets by user ID with ParseIntPipe to ensure userId is a valid number
+  // @Get('/by-user')
+  // async findByUserId(@Query('userId', ParseIntPipe) userId: number) {
+  //   try {
+  //     const userPets = await this.petsService.findByUserId(userId);
+  //     return {
+  //       success: true,
+  //       data: userPets,
+  //       message: 'Pets fetched successfully for the user',
+  //     };
+  //   } catch (error) {
+  //     return {
+  //       success: false,
+  //       message: error.message,
+  //     };
+  //   }
+  // }
+  @Get('/by-user/:userId')
+  async findByUserId(@Param('userId') userId: string) {
+    console.log('Received userId:', userId);  
+    const numericUserId = Number(userId);
+  
+    if (isNaN(numericUserId)) {
+      throw new HttpException(
+        {
+          success: false,
+          message: 'Invalid userId: userId should be a numeric string',
+        },
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+  
+    try {
+      const userPets = await this.petsService.findByUserId(numericUserId);
+      return {
+        success: true,
+        data: userPets,
+        message: 'Pets fetched successfully for the user',
+      };
+    } catch (error) {
+      throw new HttpException(
+        {
+          success: false,
+          message: error.message,
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
 }

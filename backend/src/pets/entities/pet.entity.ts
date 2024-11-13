@@ -36,8 +36,8 @@ export class Pets {
   isSold: boolean;
   // @ManyToOne(() => Todo, (cat) => cat.pets)
   // cat: Todo;
-  @Column({ nullable: true })
-  ownerId: number;
+  // @Column({ nullable: true })
+  // ownerId: number;
 
   @Column({ nullable: true })
   uploaderName: string;
@@ -50,6 +50,9 @@ export class Pets {
 
   @Column({nullable:true})
   UploaderLocation: string;
+
+  @Column({nullable:true})
+  userId: number;
 
   @OneToMany(() => Review, (review) => review.pet)
   reviews: Review[];

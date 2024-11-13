@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function PetDetails() {
+    
     const [data, setData] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
     const { id } = useParams();
@@ -22,33 +23,33 @@ export default function PetDetails() {
         fetchInfo();
     }, [id]);
 
-    const deletePet = () => {
-        if (!isLoggedIn) {
-            toast.error("You need to be logged in to delete a pet.");
-            return;
-        }
+    // const deletePet = () => {
+    //     if (!isLoggedIn) {
+    //         toast.error("You need to be logged in to delete a pet.");
+    //         return;
+    //     }
 
-        fetch(`http://localhost:5000/api/pets/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}` 
-            }
-        })
-        .then((res) => {
-            if (res.ok) {
-                toast.success("Pet deleted successfully", {
-                    onClose: () => navigate('/Home'),
-                });
-            } else {
-                console.error('Error deleting pet:', res.statusText);
-                toast.error("Error deleting pet.");
-            }
-        })
-        .catch((error) => {
-            console.error('Error deleting pet:', error);
-            toast.error("Error deleting pet.");
-        });
-    };
+    //     fetch(`http://localhost:5000/api/pets/${id}`, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Authorization': `Bearer ${localStorage.getItem('token')}` 
+    //         }
+    //     })
+    //     .then((res) => {
+    //         if (res.ok) {
+    //             toast.success("Pet deleted successfully", {
+    //                 onClose: () => navigate('/Home'),
+    //             });
+    //         } else {
+    //             console.error('Error deleting pet:', res.statusText);
+    //             toast.error("Error deleting pet.");
+    //         }
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error deleting pet:', error);
+    //         toast.error("Error deleting pet.");
+    //     });
+    // };
 
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -108,7 +109,7 @@ export default function PetDetails() {
            <Link
            to={{
              pathname: '/Review',
-             state: { petId: id, userId: localStorage.getItem('userId') }
+             state: { petId:'' , userId: localStorage.getItem('userId') }
            }}
            className='review-link'
          >
@@ -143,9 +144,9 @@ export default function PetDetails() {
 </div>
 <div className='col-lg-12 colo2' style={{marginTop:'1rem' }}>
 <button className='upload2 main-color' type='submit' onClick={handleBuyNow}>Buy Now</button>
-{isLoggedIn && (
+{/* {isLoggedIn && (
 <button className='delete_pet' onClick={deletePet}>Delete</button>
-   )}
+   )} */}
 </div>
 </div>
 </div>

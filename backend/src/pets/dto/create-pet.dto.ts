@@ -70,11 +70,17 @@ export class CreatePetDto {
   @IsOptional()
   UploaderLocation: string;
 
- @ApiProperty({example:'',})
+//  @ApiProperty({example:'',})
+//  @IsNumber()
+//  @IsNotEmpty({message: 'id is required'})
+//  @IsOptional()
+//  ownerId: number;
+
+@ApiProperty({example:'',})
  @IsNumber()
  @IsNotEmpty({message: 'id is required'})
  @IsOptional()
- ownerId: number;
+ userId: number;
 
   @ApiProperty({ example: false })
   @IsBoolean()

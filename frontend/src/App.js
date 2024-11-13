@@ -44,7 +44,9 @@ function App() {
             <Route path="/FAQs" element={<FAQs/>}></Route>
             <Route path="/Privacy" element={<Privacy/>}></Route>
             <Route path="TermsandConditions" element={<TermsAndConditions/>}></Route>
-            <Route path="/PetsManage" element={<PetsManage/>}></Route>
+            {/* <Route path="/PetsManage" element={<PetsManage/>}></Route> */}
+            <Route path="PetsManage" element={<PetsManage />} />
+
 
           </Routes>
       </Router>

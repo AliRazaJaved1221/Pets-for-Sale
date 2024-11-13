@@ -91,5 +91,10 @@ export class PetsService {
       .where('id = :id', { id })
       .execute();
   }
-
+  async findByUserId(userId: number): Promise<Pets[]> {
+    return await this.petsRepository.find({
+      where: { userId },
+    });
+  }
+  
 }
