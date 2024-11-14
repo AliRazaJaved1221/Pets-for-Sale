@@ -22,7 +22,7 @@ export default function FAQs (){
         },
         {
             question: "How can I contact customer support?",
-            answer: "You can contact customer support via our 'Contact Us' page or by emailing petsforsale.official@gamil.com"
+            answer: "You can contact customer support via our 'Contact Us' page or by emailing petsforsale.official@gmail.com"
         },
     ];
 

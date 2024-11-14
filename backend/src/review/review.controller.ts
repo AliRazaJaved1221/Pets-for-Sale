@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ReviewService } from './review.service';
 import { ApiTags } from '@nestjs/swagger';
 import { Review } from './entities/review.entity';
@@ -23,4 +23,10 @@ export class ReviewController {
   async getReviewsByPet(@Param('petId') petId: number): Promise<Review[]> {
     return this.reviewService.getReviewsByPet(petId);
   }
+  // Delete Review
+@Delete(':reviewId')
+async deleteReview(@Param('reviewId') reviewId: number): Promise<void> {
+  return this.reviewService.deleteReview(reviewId);
+}
+
 }

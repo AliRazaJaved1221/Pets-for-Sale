@@ -68,42 +68,22 @@ export class PetsController {
   }
 
 
-  // Find pet by ID with ParseIntPipe to ensure id is a valid number
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.petsService.findOne(id);
   }
 
-  // Update pet by ID with ParseIntPipe to ensure id is a valid number
   @Patch(':id')
   update(@Param('id', ParseIntPipe) id: number, @Body() updatePetDto: UpdatePetDto) {
     return this.petsService.update(id, updatePetDto);
   }
 
-  // Remove pet by ID with ParseIntPipe to ensure id is a valid number
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
     this.petsService.remove(id);
     return { message: 'Pet removed successfully' };
   }
 
-  // Fetch pets by user ID with ParseIntPipe to ensure userId is a valid number
-  // @Get('/by-user')
-  // async findByUserId(@Query('userId', ParseIntPipe) userId: number) {
-  //   try {
-  //     const userPets = await this.petsService.findByUserId(userId);
-  //     return {
-  //       success: true,
-  //       data: userPets,
-  //       message: 'Pets fetched successfully for the user',
-  //     };
-  //   } catch (error) {
-  //     return {
-  //       success: false,
-  //       message: error.message,
-  //     };
-  //   }
-  // }
   @Get('/by-user/:userId')
   async findByUserId(@Param('userId') userId: string) {
     console.log('Received userId:', userId);  

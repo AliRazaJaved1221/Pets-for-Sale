@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 import { Review } from 'src/review/entities/review.entity';
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('Pets')
 export class Pets {
@@ -34,10 +34,6 @@ export class Pets {
 
   @Column({ default: false })
   isSold: boolean;
-  // @ManyToOne(() => Todo, (cat) => cat.pets)
-  // cat: Todo;
-  // @Column({ nullable: true })
-  // ownerId: number;
 
   @Column({ nullable: true })
   uploaderName: string;
@@ -56,9 +52,5 @@ export class Pets {
 
   @OneToMany(() => Review, (review) => review.pet)
   reviews: Review[];
-  // @OneToMany(() => Review, (review) => review.pet, {
-  //   cascade: true,
-  //   onDelete: 'CASCADE',
-  // })
-  // reviews: Review[];
+
 }

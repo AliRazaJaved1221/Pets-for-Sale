@@ -3,7 +3,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlinePets } from "react-icons/md";
-import { TbReportSearch } from "react-icons/tb";
+import { MdOutlineRateReview } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
@@ -37,7 +37,7 @@ export default function AdminPets() {
             <div className='line1'><hr/></div>
             <div><Link className='admin_links' to="/AdminPets"><MdOutlinePets style={{marginRight:'1rem'}}/>Pets</Link></div>
             <div className='line1'><hr/></div>
-            <div><Link className='admin_links' to="/"><TbReportSearch style={{marginRight:'1rem'}}/>Report</Link></div>
+            <div><Link className='admin_links' to="/AdminReviews"><MdOutlineRateReview style={{marginRight:'1rem'}}/>Reviews</Link></div>
             <div className='line1'><hr/></div>
             <div style={{marginTop:'8rem'}} className='line1'><hr/></div>
             <div style={{marginRight:'2rem', marginLeft:'2rem'}} className="dropdown">

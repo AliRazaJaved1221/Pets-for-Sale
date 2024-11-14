@@ -3,7 +3,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlinePets } from "react-icons/md";
-import { TbReportSearch } from "react-icons/tb";
+import { MdOutlineRateReview } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
@@ -42,7 +42,7 @@ export default function AdminDashboard() {
             <div className='line1'><hr/></div>
             <div><Link className='admin_links' to="/AdminPets"><MdOutlinePets style={{marginRight:'1rem'}}/>Pets</Link></div>
             <div className='line1'><hr/></div>
-            <div><Link className='admin_links' to="/"><TbReportSearch style={{marginRight:'1rem'}}/>Report</Link></div>
+            <div><Link className='admin_links' to="/AdminReviews"><MdOutlineRateReview style={{marginRight:'1rem'}}/>Reviews</Link></div>
             <div className='line1'><hr/></div>
             <div style={{marginTop:'8rem'}} className='line1'><hr/></div>
             <div style={{marginRight:'2rem', marginLeft:'2rem'}} className="dropdown">
@@ -94,10 +94,12 @@ export default function AdminDashboard() {
             </div>
             </div>
             <div class="col-lg-6">
-                <div className='card dcards'>
+            <div className='card dcards'>
+                <Link to='/AdminReviews' style={{textDecoration:'none'}}>
             <div class="card-body">
-                <h3 style={{textAlign:"center", marginTop:'2rem'}}>Reports</h3>
+                <h3 style={{textAlign:"center", marginTop:'2rem'}}>Reviews</h3>
             </div>
+            </Link>
             </div>
         </div>
         </div>

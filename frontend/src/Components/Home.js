@@ -3,7 +3,7 @@ import { FaUser, FaUserPlus, FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
@@ -176,17 +176,17 @@ export default function Home() {
   <div className="footer-section">
   <h4>Quick Links</h4>
   <ul>
-    <li><Link to="/Home">Home</Link></li>
+    <li><Link to="/Home" className="links">Home</Link></li>
 
   </ul>
   </div>
   <div className="footer-section">
   <h4>Information</h4>
   <ul>
-    <li><Link to="/Contact">Contact</Link></li>
-    <li><Link to="/Privacy">Privacy Policy</Link></li>
-    <li><Link to="/FAQs">FAQs</Link></li>
-    <li><Link to="/TermsAndConditions">Terms & Conditions</Link></li>
+    <li><Link to="/Contact" className="links">Contact</Link></li>
+    <li><Link to="/Privacy" className="links">Privacy Policy</Link></li>
+    <li><Link to="/FAQs" className="links">FAQs</Link></li>
+    <li><Link to="/TermsAndConditions" className="links">Terms & Conditions</Link></li>
   </ul>
   </div>
 
@@ -201,7 +201,7 @@ export default function Home() {
   <h4>Follow Us</h4>
   <div className="social-icons">
   <div className="fb-icons"><a href="https://www.facebook.com/61567034620674/" target="_blank" rel="noopener noreferrer"><FaFacebook className="fb-icons1"/></a></div>
-  <div className="fb-icons"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram className="fb-icons2"/></a></div>
+  <div className="fb-icons"><a href="https://www.linkedin.com/in/alirazajaved2001/" target="_blank" rel="noopener noreferrer"><FaLinkedin className="fb-icons2"/></a></div>
   <div className="fb-icons"><a href="https://wa.link/7yqee1" target="_blank" rel="noopener noreferrer"><FaWhatsapp className="fb-icons3"/></a></div>
   </div>
   </div>

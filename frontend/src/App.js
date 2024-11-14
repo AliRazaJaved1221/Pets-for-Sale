@@ -19,6 +19,7 @@ import FAQs from './Components/FAQs';
 import Privacy from './Components/Privacy';
 import TermsAndConditions from './Components/TermsAndConditions';
 import PetsManage from './Components/PetsManage';
+import AdminReviews from './Components/AdminReviews';
 
 function App() {
 //   if (!navigator.onLine) {
@@ -39,13 +40,13 @@ function App() {
             <Route path="/AdminUsers" element={<AdminUsers/>}></Route>
             <Route path="/AdminDashboard" element={<AdminDashboard/>}></Route>
             <Route path="/Payment" element={<Payment/>}></Route>
-            <Route path="/Review" element={<Review/>}></Route>
+            <Route path="/Review/:id" element={<Review/>}></Route>
             <Route path="/Contact" element={<Contact/>}></Route>
             <Route path="/FAQs" element={<FAQs/>}></Route>
             <Route path="/Privacy" element={<Privacy/>}></Route>
             <Route path="TermsandConditions" element={<TermsAndConditions/>}></Route>
-            {/* <Route path="/PetsManage" element={<PetsManage/>}></Route> */}
             <Route path="PetsManage" element={<PetsManage />} />
+            <Route path="AdminReviews" element={<AdminReviews/>}></Route>
 
 
           </Routes>

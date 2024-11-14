@@ -49,4 +49,13 @@ export class ReviewService {
       relations: ['user'],
     });
   }
+  // Delete Review
+async deleteReview(reviewId: number): Promise<void> {
+  const review = await this.reviewRepository.findOneBy({ id: reviewId });
+  if (!review) {
+    throw new Error('Review not found');
+  }
+  await this.reviewRepository.remove(review); // Delete the review
+}
+
 }

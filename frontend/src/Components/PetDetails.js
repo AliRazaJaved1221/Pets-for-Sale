@@ -10,6 +10,7 @@ export default function PetDetails() {
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
     const { id } = useParams();
     const navigate = useNavigate();
+    console.log("id:::",id)
 
     useEffect(() => {
         setIsLoggedIn(!!localStorage.getItem('token'));
@@ -108,7 +109,7 @@ export default function PetDetails() {
         {isLoggedIn ? (
            <Link
            to={{
-             pathname: '/Review',
+             pathname: `/Review/${id}`,
              state: { petId:'' , userId: localStorage.getItem('userId') }
            }}
            className='review-link'

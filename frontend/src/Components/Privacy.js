@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Privacy() {
   return (
+    <>
     <div className="container3">
     <div className='col-lg-12 col-md-12 col-sm-12 colo'>
     <Link to='/Home'><img src='./logo-pets.png' className='login_log' style={{marginLeft:'-1rem' , marginTop:'-2rem'}} alt='Logo' /></Link>
@@ -10,7 +11,8 @@ export default function Privacy() {
       <h1 className="heading3">Privacy Policy</h1>
       <p className="updated3"><strong>Last Updated: 01-11-2024</strong></p>
       <p>Welcome to <a href='Home' style={{textDecoration:'none', fontWeight:'bold'}}>Pets For Sale!</a> Your privacy is very important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit and interact with our website. By using our website, you agree to the terms of this Privacy Policy.</p>
-
+      </div>
+<div style={{marginLeft:'2rem'}}>
       <h2 className="subHeading3"> Information We Collect</h2>
       <p>We collect various types of information to provide and improve our services to you:</p>
      
@@ -54,7 +56,7 @@ export default function Privacy() {
 
       <h2 className="subHeading3"> Changes to This Privacy Policy</h2>
       <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page. Please check this page periodically for updates.</p>
-
+      <div className='container3'>
       <h2 className="subHeading3"> Contact Us</h2>
       <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
       <p><strong>Pets For Sale</strong><br />
@@ -62,6 +64,8 @@ export default function Privacy() {
         <strong>Phone:</strong> <a href="tel:03051888872" style={{textDecoration:'none'}}>0305-1888872</a></p>
 
       <p><strong>Thank you for trusting Pets For Sale with your information.</strong></p>
-    </div>
+      </div>
+      </div>
+      </>
   );
 }

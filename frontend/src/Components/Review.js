@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Review() {
   
   const location = useLocation();
+  const { id } = useParams();
   const { petId } = location.state || {};  // Getting petId from route state
-  console.log(location.state)
+  console.log("id::::",id)
   const user = JSON.parse(localStorage.getItem("user")) || {}; // Fetching user from localStorage
 
   const [formData, setFormData] = useState({
-    petId: petId || "", 
+    petId: id || "", 
     userId: user.id || "", 
     feedback: "",
   });
@@ -23,7 +24,6 @@ export default function Review() {
       [name]: value,
     });
   };
-console.log('meri jan', formData)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -46,10 +46,11 @@ console.log('meri jan', formData)
       if (response.ok) {
         toast.success("Review submitted successfully!");
         setFormData({
-          petId:'' ,
+          petId:petId,
           userId: user.id,
           feedback: "",
         });
+        
       } else {
         toast.error(data.message || "Failed to submit review");
       }
@@ -58,13 +59,15 @@ console.log('meri jan', formData)
       toast.error("An error occurred while submitting the review.");
     }
   };
+  console.log('petId', petId )
+
   return (
     <div className="review-form">
       <div className="row">
         <div className="col-lg-12 col-md-12 col-sm-12 colo">
           <Link to="/Home">
             <img
-              src="./logo-pets.png"
+              src="/logo-pets.png"
               className="login_log"
               style={{ marginLeft: "-1rem" }}
               alt="Logo"
@@ -85,7 +88,9 @@ console.log('meri jan', formData)
               value={formData.userId}
               onChange={handleInputChange}
               placeholder="User ID"
+              style={{display:'none'}}
               required
+              // style={{display:'none'}}
               readOnly
             />
           </div>
@@ -99,6 +104,7 @@ console.log('meri jan', formData)
               value={formData.petId}
               onChange={handleInputChange}
               placeholder="Pet ID"
+              style={{display:'none'}}
               required
             />
 

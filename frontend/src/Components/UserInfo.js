@@ -184,9 +184,15 @@ return (
     </div>
     <div className="row">
     <div className="col-lg-6 col-md-12 col-sm-12" style={{float:'right', display:'flex', justifyContent:'center', marginLeft:'9rem'}}>
-    <Link to={{pathname: '/PetsManage',state: { userId: String( localStorage.getItem('userId')) }}} style={{ color: 'black', fontWeight: 'bold', textDecoration: 'none' }}>
+    {initialValues.role === 1 ? (
+  <Link to='/AdminDashboard' style={{ color: 'black', fontWeight: 'bold', textDecoration: 'none' }}>
+    Admin Dashboard...
+  </Link>
+) : (
+  <Link to={{ pathname: '/PetsManage', state: { userId: String(localStorage.getItem('userId')) } }} style={{ color: 'black', fontWeight: 'bold', textDecoration: 'none' }}>
     Manage Pets...
-    </Link>
+  </Link>
+)}
     </div>
     <div className="col-lg-6 col-md-12 col-sm-12"></div>
     </div>
