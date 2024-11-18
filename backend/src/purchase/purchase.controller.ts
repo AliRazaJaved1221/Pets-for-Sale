@@ -11,8 +11,8 @@ export class PurchaseController {
     return { message: 'Purchase successful, email sent!' };
   }
 
-  // @Get('purchased-pets')
-  // async getPurchasedPets(): Promise<any[]> {
-  //   return await this.purchaseService.getPurchasedPets();
-  // }
+  @Get('buy-now')
+  async getPurchasedPets(): Promise<any[]> {
+    return this.purchaseService.getPurchasedPets();
+  }
 }

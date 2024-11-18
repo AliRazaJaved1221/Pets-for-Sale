@@ -5,19 +5,20 @@ import * as nodemailer from 'nodemailer';
 export class PurchaseService {
   private transporter;
 
+  // Simulate a database for purchased pets
+  private purchasedPets = [];
+
   constructor() {
-    // Configure Nodemailer with Gmail settings
     this.transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'petsforsale.official@gmail.com', // Your Gmail address
-        pass: 'xdbn fojk revo fnge', // Your App Password (not your Gmail password)
+        user: 'petsforsale.official@gmail.com',
+        pass: 'xdbn fojk revo fnge',
       },
     });
   }
 
   async handlePurchase(purchaseData: any): Promise<void> {
-    // Destructure the purchase data
     const {
       buyerFirstName,
       buyerLastName,
@@ -33,12 +34,38 @@ export class PurchaseService {
       petPrice,
       petDescription,
       petOwnerEmail,
+      paymentMethod,
+      petOwnerName,
+      petOwnerMobile,
       petImage,
     } = purchaseData;
 
     const purchaseDate = new Date().toLocaleDateString();
 
-    // Send email to the pet owner (uploaderEmail)
+    // Save the purchase details (simulate storing in a database)
+    this.purchasedPets.push({
+      buyerFirstName,
+      buyerLastName,
+      buyerEmail,
+      contact,
+      delivery,
+      city,
+      address,
+      petName,
+      petBreed,
+      petColor,
+      petAge,
+      petPrice,
+      petDescription,
+      paymentMethod,
+      petOwnerEmail,
+      petOwnerName,
+      petOwnerMobile,
+      petImage,
+      purchaseDate,
+      
+    });
+
     await this.sendEmailToOwner(
       buyerFirstName,
       buyerLastName,
@@ -54,12 +81,17 @@ export class PurchaseService {
       petPrice,
       petDescription,
       petOwnerEmail,
-      petImage,
-      purchaseDate
+      petOwnerName,
+      petOwnerMobile,  
+         
     );
   }
 
-  // Email sending logic
+  async getPurchasedPets(): Promise<any[]> {
+    // Return all purchased pets
+    return this.purchasedPets;
+  }
+
   private async sendEmailToOwner(
     buyerFirstName: string,
     buyerLastName: string,
@@ -78,18 +110,17 @@ export class PurchaseService {
     petImage: string,
     purchaseDate: string
   ): Promise<void> {
-    // Construct the email content
     const mailOptions = {
       from: 'petsforsale.official@gmail.com',
-      to: petOwnerEmail, // Send email to the pet owner
+      to: petOwnerEmail,
       subject: `Your Pet ${petName}, Sold`,
       html: `
         <h2>Your Pet ${petName} Has Been Sold!</h2>
-        <p><strong>Purchase Date:</strong> ${purchaseDate}</p>
         <h3>Buyer Details:</h3>
         <p><strong>First Name:</strong> ${buyerFirstName}</p>
         <p><strong>Last Name:</strong> ${buyerLastName}</p>
-        <p><strong>Contact Email:</strong> ${contact}</p>
+        <p><strong>Email:</strong> ${contact}</p>
+        <p><strong>Contact:</strong> ${purchaseDate}</p>
         <p><strong>Delivery Method:</strong> ${delivery}</p>
         <p><strong>City:</strong> ${city}</p>
         <p><strong>Address:</strong> ${address}</p>
@@ -100,13 +131,12 @@ export class PurchaseService {
         <p><strong>Price:</strong> ${petPrice}</p>
         <p><strong>Description:</strong> ${petDescription}</p>
         <p>Thank you for listing your pet on Pets for Sale!</p>
-        <p>Best Regards</p>
+        <p>Best Regards,</p>
         <p>PetsForSale Team,</p>
       `,
     };
 
     try {
-      // Send the email
       await this.transporter.sendMail(mailOptions);
       console.log('Email sent successfully to pet owner');
     } catch (error) {
