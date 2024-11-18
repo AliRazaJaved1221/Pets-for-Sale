@@ -83,12 +83,10 @@ const formik = useFormik({
 
                 const updatedUser = await response.json(); 
 
-                // Update localStorage with the new user data
                 localStorage.setItem('user', JSON.stringify(updatedUser));
                 
                 toast.success('User information updated successfully.');
 
-                // Update formik's initial values with updated user data
                 setInitialValues({
                     id: updatedUser.id,
                     username: updatedUser.username,
@@ -106,39 +104,7 @@ const formik = useFormik({
         }
     });
 
-    // const handleDelete = async () => {
-    // const token = localStorage.getItem('token');
-    //     if (!token) {
-    //     toast.error('Unauthorized action. Please log in.');
-    //     return;
-    //     }
     
-    //     console.log("User ID for deletion:", formik.values.id); 
-    
-    //     try {
-    //         const response = await fetch(`http://localhost:5000/api/users/delete/${formik.values.id}`, {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`
-    //             }
-    //         });
-    
-    //         if (!response.ok) {
-    //             throw new Error(`HTTP error! status: ${response.status}`);
-    //         }
-    
-    //         localStorage.removeItem('user');  
-    //         localStorage.removeItem('token'); 
-    //         toast.success('User account deleted successfully. Logging out...');
-      
-    //         navigate('/LoginForm'); 
-    //     } catch (error) {
-    //         console.error('Error deleting user:', error);
-    //         toast.error('Failed to delete user account. Please try again.');
-    //     }
-    // };
-
     const handleDelete = async () => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -146,7 +112,7 @@ const formik = useFormik({
             return;
         }
     
-        console.log("User ID for deletion:", formik.values.id); // Debugging log
+        console.log("User ID for deletion:", formik.values.id); 
     
         try {
             const response = await fetch(`http://localhost:5000/api/users/delete/${formik.values.id}`, {
@@ -159,11 +125,10 @@ const formik = useFormik({
     
             if (!response.ok) {
                 const errorBody = await response.json();
-                console.error('Error Response Body:', errorBody); // Log backend error response
+                console.error('Error Response Body:', errorBody); 
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
     
-            // Clear localStorage and navigate to login
             localStorage.removeItem('user');
             localStorage.removeItem('token');
             toast.success('User account deleted successfully. Logging out...');

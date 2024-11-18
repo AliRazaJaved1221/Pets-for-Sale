@@ -55,7 +55,6 @@ export default function AdminPurchase() {
     fetchPurchasedPets();
   }, []);
 
-  // Function to print summary
   const printSummary = () => {
     const printContents = document.getElementById("summary").innerHTML;
     const originalContents = document.body.innerHTML;
