@@ -185,7 +185,7 @@ return (
     <div className="row">
     <div className="col-lg-6 col-md-12 col-sm-12" style={{float:'right', display:'flex', justifyContent:'center', marginLeft:'9rem'}}>
     {initialValues.role === 1 ? (
-  <Link to='/AdminDashboard' style={{ color: 'black', fontWeight: 'bold', textDecoration: 'none' }}>
+  <Link to='/AdminDashboard' style={{ color: 'black', fontWeight: 'bold', textDecoration: 'none', marginLeft:'2rem' }}>
     Admin Dashboard...
   </Link>
 ) : (

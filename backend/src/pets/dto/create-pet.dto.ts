@@ -78,7 +78,6 @@ export class CreatePetDto {
 
   @ApiProperty({ example: false })
   @IsBoolean()
-  @IsNotEmpty({ message: 'This is required' })
   @IsOptional()
   isSold: boolean;
 }

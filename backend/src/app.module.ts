@@ -12,9 +12,9 @@ import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { ReviewModule } from './review/review.module';
-import { ComplainModule } from './complain/complain.module';
 import { RatingModule } from './rating/rating.module';
-
+import { ContactModule } from './contact/contact.module';
+import { PurchaseModule } from './purchase/purchase.module';
 @Module({
   imports: [
     // ServeStaticModule.forRoot({
@@ -31,8 +31,9 @@ import { RatingModule } from './rating/rating.module';
     UsersModule,
     FilesModule,
     ReviewModule,
-    ComplainModule,
     RatingModule,
+    ContactModule,
+    PurchaseModule
   ],
   controllers: [],
   providers: [],

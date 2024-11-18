@@ -6,23 +6,21 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Payment() {
-    // Using useLocation to get the pet data from the previous page (PetDetails)
     const { state } = useLocation();
     const pet = state?.pet;
 
-    // Form data state
     const [formData, setFormData] = useState({
         contact: '',
         delivery: '',
         city: '',
         firstName: '',
+        lastName: '',
         address: '',
         paymentMethod: ''
     });
 
     if (!pet) return <div>No pet data available. Please go back and select a pet.</div>;
 
-    // Function to handle input changes
     const handleInputChange = (e) => {
         setFormData({
             ...formData,
@@ -30,11 +28,9 @@ export default function Payment() {
         });
     };
 
-    // Function to handle Continue button click
-    const handleContinue = () => {
-        const { contact, delivery, city, firstName, address, paymentMethod } = formData;
+    const handleContinue = async () => {
+        const { contact, delivery, city, firstName, lastName, address, paymentMethod } = formData;
 
-        // Validate required fields
         if (!contact || !delivery || !city || !firstName || !address || !paymentMethod) {
             toast.error('Please fill in all required fields.', {
                 hideProgressBar: true,
@@ -42,19 +38,64 @@ export default function Payment() {
             return;
         }
 
-        toast.success('Your order was placed! Seller will contact you soon. Thank you for your purchase.', {
-            hideProgressBar: true,
-        });
+        const purchaseData = {
+            buyerFirstName: firstName,
+            buyerLastName: lastName || '',
+            buyerEmail: contact, 
+            contact,
+            delivery,
+            city,
+            address,
+            paymentMethod,
+            petName: pet.breed,
+            petBreed: pet.breed,
+            petColor: pet.color,
+            petAge: pet.age,
+            petPrice: pet.price,
+            petDescription: pet.description,
+            petOwnerName: pet.uploaderName,
+            petOwnerMobile: pet.uploaderMobileContact,
+            petOwnerEmail: pet.uploaderEmail,
+            petOwnerLocation: pet.UploaderLocation,
+            petImage: pet.image,
+            
+            isSold: pet.true,
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/api/purchase/buy-now', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(purchaseData),
+            });
+
+            if (response.ok) {
+                toast.success('Your order was placed! Seller will contact you soon. Thank you for your purchase.', {
+                    hideProgressBar: false,
+                });
+            } else {
+                toast.error('Failed to place order. Please try again.', {
+                    hideProgressBar: true,
+                });
+            }
+        } catch (error) {
+            console.error('Error placing order:', error);
+            toast.error('An error occurred. Please try again.', {
+                hideProgressBar: true,
+            });
+        }
     };
 
     return (
         <>
-            <ToastContainer /> 
+            <ToastContainer />
             <div className='container'>
                 <div className='row'>
-                    <div className='col-lg-12' style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                        <div >
-                            <Link to='/Home'><img src='/logo-pets.png' style={{ height: '10rem', width: '13rem'}} alt='Logo' /></Link>
+                    <div className='col-lg-12' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <div>
+                            <Link to='/Home'><img src='/logo-pets.png' style={{ height: '10rem', width: '13rem' }} alt='Logo' /></Link>
                         </div>
                     </div>
                 </div>
@@ -83,7 +124,7 @@ export default function Payment() {
                                         onChange={handleInputChange}
                                         required
                                     /><span className='shipping'>Ship</span>
-                                    <span style={{ fontSize: '1.5rem', float: 'right' }}><MdLocalShipping style={{ fontSize: '1.5rem', float: 'right', marginBottom: '' }} /></span>
+                                    <span style={{ fontSize: '1.5rem', float: 'right' }}><MdLocalShipping /></span>
                                 </div>
                                 <div className='ship_radio'>
                                     <input
@@ -92,7 +133,7 @@ export default function Payment() {
                                         value='PickUp'
                                         onChange={handleInputChange}
                                     /><span className='shipping'>PickUp in store</span>
-                                    <span style={{ fontSize: '1.5rem', float: 'right' }}><FaStore style={{ fontSize: '1.5rem', float: 'right', marginBottom: '' }} /></span>
+                                    <span style={{ fontSize: '1.5rem', float: 'right' }}><FaStore /></span>
                                 </div>
                                 <input
                                     type='text'
@@ -116,7 +157,14 @@ export default function Payment() {
                                         />
                                     </div>
                                     <div className='col-lg-5'>
-                                        <input type='text' className='search-bar4' placeholder='Last Name (Optional)' />
+                                        <input
+                                            type='text'
+                                            className='search-bar4'
+                                            name='lastName'
+                                            placeholder='Last Name (Optional)'
+                                            value={formData.lastName}
+                                            onChange={handleInputChange}
+                                        />
                                     </div>
                                     <div className='col-lg-2'></div>
                                 </div>
@@ -157,7 +205,7 @@ export default function Payment() {
                                 </div>
                             </div>
                         </div>
-                        {/* Right Column for Pet Details */}
+
                         <div className='col-lg-4 col-md-4 col-sm-12'>
                             <h4>Pet Details</h4>
                             <div className='container row mt-5'>
@@ -176,7 +224,7 @@ export default function Payment() {
                                 </div>
                             </div>
                         </div>
-                        {/* Continue Button */}
+
                         <div className='col-lg-12' style={{ textAlign: 'center' }}>
                             <button className='upload2 main-color' type='button' onClick={handleContinue}>Continue</button>
                         </div>

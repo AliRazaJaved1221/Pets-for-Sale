@@ -20,6 +20,8 @@ import Privacy from './Components/Privacy';
 import TermsAndConditions from './Components/TermsAndConditions';
 import PetsManage from './Components/PetsManage';
 import AdminReviews from './Components/AdminReviews';
+import AdminPurchase from './Components/AdminPurchase';
+
 
 function App() {
 //   if (!navigator.onLine) {
@@ -47,6 +49,7 @@ function App() {
             <Route path="TermsandConditions" element={<TermsAndConditions/>}></Route>
             <Route path="PetsManage" element={<PetsManage />} />
             <Route path="AdminReviews" element={<AdminReviews/>}></Route>
+            <Route path="AdminPurchase" element={<AdminPurchase/>}></Route>
 
 
           </Routes>

@@ -57,5 +57,4 @@ async deleteReview(reviewId: number): Promise<void> {
   }
   await this.reviewRepository.remove(review); // Delete the review
 }
-
 }

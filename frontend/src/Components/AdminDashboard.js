@@ -10,10 +10,11 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { TbReportSearch } from "react-icons/tb";
 
 export default function AdminDashboard() {
 
-  const [data, setData] = useState(0);
+  const [data, setData] = useState(0); 
 
     
 
@@ -43,8 +44,9 @@ export default function AdminDashboard() {
             <div><Link className='admin_links' to="/AdminPets"><MdOutlinePets style={{marginRight:'1rem'}}/>Pets</Link></div>
             <div className='line1'><hr/></div>
             <div><Link className='admin_links' to="/AdminReviews"><MdOutlineRateReview style={{marginRight:'1rem'}}/>Reviews</Link></div>
-            <div className='line1'><hr/></div>
-            <div style={{marginTop:'8rem'}} className='line1'><hr/></div>
+            <div className="line1"><hr/></div>
+            <div><Link className="admin_links" to="/AdminPurchase"><TbReportSearch style={{ marginRight: "1rem" }} />Report</Link></div>
+            <div style={{marginTop:'5rem'}} className='line1'><hr/></div>
             <div style={{marginRight:'2rem', marginLeft:'2rem'}} className="dropdown">
               <Link className="btn dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color:'white'}}>Admin</Link>
               <ul className="dropdown-menu">
@@ -88,9 +90,11 @@ export default function AdminDashboard() {
         <div className='row'>
           <div class="col-lg-6">
             <div className='card dcards'>
+              <a style={{textDecoration:'none'}} href='https://accounts.google.com/SignOutOptions?hl=en&continue=https://mail.google.com/mail&service=mail&ec=GBRAFw'>
             <div class="card-body">
                 <h3 style={{textAlign:"center", marginTop:'2rem'}}>Complaints</h3>
             </div>
+            </a>
             </div>
             </div>
             <div class="col-lg-6">

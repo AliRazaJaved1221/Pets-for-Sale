@@ -15,6 +15,7 @@ import { RxUpdate } from "react-icons/rx";
 import { IoEyeOutline } from "react-icons/io5";
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import { TbReportSearch } from "react-icons/tb";
 
 export default function AdminUsers() {
   const [data, setData] = useState([]);
@@ -157,7 +158,9 @@ export default function AdminUsers() {
             <div className='line1'><hr /></div>
             <div><Link className='admin_links' to="/AdminReviews"><MdOutlineRateReview style={{marginRight:'1rem'}}/>Reviews</Link></div>
             <div className='line1'><hr /></div>
-            <div style={{ marginTop: '8rem' }} className='line1'><hr /></div>
+            <div><Link className="admin_links" to="/AdminPurchase"><TbReportSearch style={{ marginRight: "1rem" }} />Report</Link></div>
+           
+            <div style={{ marginTop: '5rem' }} className='line1'><hr /></div>
             <div style={{ marginRight: '2rem', marginLeft: '2rem' }} className="dropdown">
               <Link className="btn dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>Admin</Link>
               <ul className="dropdown-menu">

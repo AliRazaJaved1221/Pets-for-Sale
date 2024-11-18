@@ -1314,12 +1314,93 @@ width: 15rem
 .review_dlt {
 background-color: rgb(248, 22, 22);
 color: white;
-padding: 0.5rem 1rem;
+padding: 0.5rem 1.5rem;
 border-radius: 2rem;
 font-weight: bold;
 border: 2px solid rgb(163, 7, 7);
 }
 .review_dlt:hover{
-  background-color: rgb(1, 1, 157);
+  background-color: #0758d3;
   border: 2px solid rgb(29, 29, 252);
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.personal-info, .address-info {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.personal-info h3, .address-info h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.address-info .address-box {
+  background-color: #f0f8ff;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.input-fields2_contact, .input-fields3_contact {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.input-fields3 {
+  height: 100px;
+  resize: none;
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+.email-link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.email-link:hover {
+  text-decoration: underline;
 }

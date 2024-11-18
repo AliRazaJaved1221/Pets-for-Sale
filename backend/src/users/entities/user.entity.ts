@@ -34,4 +34,5 @@ export class UserEntity {
   role: string; // Assuming role is a string, you can change the type as needed
   @OneToMany(() => Review, (review) => review.user)
   reviews: Review[];
+  
 }
