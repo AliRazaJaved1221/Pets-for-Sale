@@ -13,7 +13,10 @@ export default function PetDetails() {
     console.log("id:::", id)
 
     // Check if the logged-in user is an admin
-    const isAdmin =JSON.parse(localStorage.getItem('user')).role === 1;  
+    // const isAdmin =JSON.parse(localStorage.getItem('user')).role === 1;  
+    const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+const isAdmin = user && user.role === 1; // Check if user exists and has role === 1
+
 
     
     useEffect(() => {
@@ -142,12 +145,25 @@ export default function PetDetails() {
                         <p className='pet-pricing2'>{data.description}</p>
                     </div>
 
-                    <div className='col-lg-12 colo2' style={{ marginTop: '1rem' }}>
+                    {/* <div className='col-lg-12 colo2' style={{ marginTop: '1rem' }}>
                         <button className='upload2 main-color' type='submit' onClick={handleBuyNow}>Buy Now</button>
                         { isAdmin && (
                             <button className='delete_pet' onClick={deletePet}>Delete</button>
                         )}
-                    </div>
+                    </div> */}
+                    <div className='col-lg-12 colo2' style={{ marginTop: '1rem' }}>
+    {isLoggedIn && (
+        <button className='upload2 main-color' type='submit' onClick={handleBuyNow}>
+            Buy Now
+        </button>
+    )}
+    {isAdmin && (
+        <button className='delete_pet' onClick={deletePet}>
+            Delete
+        </button>
+    )}
+</div>
+
                 </div>
             </div>
         </div>

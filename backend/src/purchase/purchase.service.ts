@@ -115,7 +115,7 @@ export class PurchaseService {
       to: petOwnerEmail,
       subject: `Your Pet ${petName}, Sold`,
       html: `
-        <h2>Your Pet ${petName} Has Been Sold!</h2>
+        <h2>Your Pet ${petName} Has Been Sold! Now you can delete your uploaded pet from PetsForSale</h2>
         <h3>Buyer Details:</h3>
         <p><strong>First Name:</strong> ${buyerFirstName}</p>
         <p><strong>Last Name:</strong> ${buyerLastName}</p>
