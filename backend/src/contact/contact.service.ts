@@ -31,7 +31,7 @@ export class ContactService {
       service: 'gmail',
       auth: {
         user: 'petsforsale.official@gmail.com',
-        pass: 'xdbn fojk revo fnge', // Replace with your email password or app-specific password
+        pass: 'miop cmic enkb jmbn', // Replace with your email password or app-specific password
       },
     });
 

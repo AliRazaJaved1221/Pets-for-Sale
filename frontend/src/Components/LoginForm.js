@@ -93,7 +93,8 @@ export default function LoginForm () {
     <span className='check-box'>
     <input type='checkbox' /><span>Remember me</span>
     </span>
-    <span><Link to='/ForgetPassword' className='forget2'>Forget Password?</Link></span>
+    {/* <span><Link to='/ForgetPassword' className='forget2'>Forget Password?</Link></span> */}
+    <a className="forget2" href="mailto:petsforsale.official@gmail.com">Forget Password?</a>
     </div>
     </div>
     <div className='row mt-3'>

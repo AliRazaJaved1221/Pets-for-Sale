@@ -5,7 +5,7 @@ import Modal from './Components/Modal'
 import Home from './Components/Home';
 import SignUpForm from './Components/SignUpForm';
 import LoginForm from './Components/LoginForm';
-import ForgetPassword from './Components/ForgetPassword';
+// import ForgetPassword from './Components/ForgetPassword';
 import { ToastContainer } from 'react-toastify';
 import AdminPets from './Components/AdminPets';
 import UserInfo from './Components/UserInfo';
@@ -35,7 +35,7 @@ function App() {
             <Route path="/Home" element={<Home/>}></Route>
             <Route path="/SignUpForm" element={<SignUpForm/>}></Route>
             <Route path="/LoginForm" element={<LoginForm />}></Route>
-            <Route path="/ForgetPassword" element={<ForgetPassword />}></Route>
+            {/* <Route path="/ForgetPassword" element={<ForgetPassword />}></Route> */}
             <Route path="/AdminPets" element={<AdminPets/>}></Route>
             <Route path="/pet/:id" element={<PetDetails/>} />
             <Route path="/UserInfo" element={<UserInfo/>}></Route>

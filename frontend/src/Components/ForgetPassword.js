@@ -45,7 +45,7 @@ export default function ForgetPassword() {
             <div className='row'>
                 <div className='col-lg-5 col-md-4'></div>                        
                 <div className='col-lg-7 col-md-8'>
-                <div><Link to='/' style={{marginLeft:'2.5rem', color: '#06048c', textDecoration: 'none' }}>Privacy and Terms & Conditions</Link></div>
+                <div><Link to='/TermsAndConditions' style={{marginLeft:'2.5rem', color: '#06048c', textDecoration: 'none' }}>Privacy and Terms & Conditions</Link></div>
                 </div>
             </div>
             <div className='row'>

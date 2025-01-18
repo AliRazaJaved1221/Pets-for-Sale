@@ -7,16 +7,18 @@ export class PurchaseService {
 
   // Simulate a database for purchased pets
   private purchasedPets = [];
-
   constructor() {
     this.transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com', // Explicit Gmail SMTP host
+      port: 465, // SSL port
+      secure: true, // Use SSL
       auth: {
         user: 'petsforsale.official@gmail.com',
-        pass: 'xdbn fojk revo fnge',
+        pass: 'miop cmic enkb jmbn', // App Password
       },
     });
   }
+  
 
   async handlePurchase(purchaseData: any): Promise<void> {
     const {
