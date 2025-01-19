@@ -4,8 +4,6 @@ import { AiOutlineDashboard } from "react-icons/ai";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlinePets } from "react-icons/md";
 import { MdOutlineRateReview } from "react-icons/md";
-import { IoSettingsOutline } from "react-icons/io5";
-import { FaRegUserCircle } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { Link } from 'react-router-dom';
@@ -63,9 +61,6 @@ export default function AdminReviews() {
             <div style={{ marginRight: '2rem', marginLeft: '2rem' }} className="dropdown">
               <Link className="btn dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>Admin</Link>
               <ul className="dropdown-menu">
-                <li><Link className="dropdown-item" to="/"><IoSettingsOutline style={{ marginRight: '0.5rem' }} />Settings</Link></li>
-                <li><Link className="dropdown-item" to="/UserInfo"><FaRegUserCircle style={{ marginRight: '0.5rem' }} />Profile</Link></li>
-                <li><hr className="dropdown-divider" /></li>
                 <li><Link className="dropdown-item" to="/"><IoLogOutOutline style={{ marginRight: '0.5rem' }} />Logout</Link></li>
               </ul>
             </div>

@@ -3,16 +3,15 @@ import { IoHomeOutline } from "react-icons/io5";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlinePets, MdOutlineRateReview } from "react-icons/md";
-import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
-import { FaRegUserCircle } from "react-icons/fa";
+import { IoLogOutOutline } from "react-icons/io5";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { TbReportSearch } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
 export default function AdminPurchase() {
   const [purchasedPets, setPurchasedPets] = useState([]);
-  const [weeklyCount, setWeeklyCount] = useState(0);
-  const [monthlyCount, setMonthlyCount] = useState(0);
+  // const [weeklyCount, setWeeklyCount] = useState(0);
+  // const [monthlyCount, setMonthlyCount] = useState(0);
   
 
   // Group purchases by time period
@@ -24,17 +23,17 @@ export default function AdminPurchase() {
     const oneMonthAgo = new Date(today);
     oneMonthAgo.setMonth(today.getMonth() - 1);
 
-    let weekly = 0;
-    let monthly = 0;
+    // let weekly = 0;
+    // let monthly = 0;
 
     data.forEach((pet) => {
-      const purchaseDate = new Date(pet.purchaseDate);
-      if (purchaseDate > oneWeekAgo) weekly++;
-      if (purchaseDate > oneMonthAgo) monthly++;
+      // const purchaseDate = new Date(pet.purchaseDate);
+      // if (purchaseDate > oneWeekAgo) weekly++;
+      // if (purchaseDate > oneMonthAgo) monthly++;
     });
 
-    setWeeklyCount(weekly);
-    setMonthlyCount(monthly);
+    // setWeeklyCount(weekly);
+    // setMonthlyCount(monthly);
   };
 
   useEffect(() => {
@@ -150,21 +149,6 @@ export default function AdminPurchase() {
                 <ul className="dropdown-menu">
                   <li>
                     <Link className="dropdown-item" to="/">
-                      <IoSettingsOutline style={{ marginRight: "0.5rem" }} />
-                      Settings
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/UserInfo">
-                      <FaRegUserCircle style={{ marginRight: "0.5rem" }} />
-                      Profile
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/">
                       <IoLogOutOutline style={{ marginRight: "0.5rem" }} />
                       Logout
                     </Link>
@@ -197,10 +181,10 @@ export default function AdminPurchase() {
               </p>
             
               <p>
-                <strong>Pets Purchases in last 7 days:</strong> {weeklyCount}
+                <strong>Pets Purchases in last 7 days:</strong> {purchasedPets.length}
               </p>
               <p>
-                <strong>Pets Purchases in last 30 days:</strong> {monthlyCount}
+                <strong>Pets Purchases in last 30 days:</strong> {purchasedPets.length}
               </p>
              
             </div>
