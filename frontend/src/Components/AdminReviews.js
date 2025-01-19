@@ -102,7 +102,7 @@ export default function AdminReviews() {
                     <img src={review.pet.image} alt={review.pet.breed} style={{width:'97px', height:'94px', borderRadius:'4rem'}} />
                     <p><strong>Breed:</strong> {review.pet.breed}</p>
                     <p><strong>Color:</strong> {review.pet.color}</p>
-                    <p><strong>Price:</strong> ${review.pet.price}</p>
+                    <p><strong>Price:</strong> Rs.{review.pet.price}</p>
                     <p><strong>Description:</strong> {review.pet.description}</p>
                     </div>
                     <div className='col-4'>
