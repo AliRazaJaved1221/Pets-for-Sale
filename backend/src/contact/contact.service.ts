@@ -13,11 +13,9 @@ export class ContactService {
   ) {}
 
   async createContact(createContactDto: CreateContactDto): Promise<Contact> {
-    // Save contact information to the database
     const newContact = this.contactRepository.create(createContactDto);
     const savedContact = await this.contactRepository.save(newContact);
 
-    // Send email using Nodemailer
     await this.sendEmail(createContactDto);
 
     return savedContact;
@@ -26,20 +24,18 @@ export class ContactService {
   private async sendEmail(createContactDto: CreateContactDto): Promise<void> {
     const { fullName, email, contactType, message } = createContactDto;
 
-    // Configure Nodemailer transport
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: 'petsforsale.official@gmail.com',
-        pass: 'miop cmic enkb jmbn', // Replace with your email password or app-specific password
+        pass: 'miop cmic enkb jmbn', 
       },
     });
 
-    // Define the email content
     const mailOptions = {
       from: 'petsforsale.official@gmail.com',
-      to: 'petsforsale.official@gmail.com', // Send the email to the provided email address
-      subject: contactType, // Use contactType as the subject
+      to: 'petsforsale.official@gmail.com', 
+      subject: contactType, 
       text: `Dear Admin, I am ${fullName},\n\nI am Contacting you for ${contactType},\n\nMessage:\n${message}\n\nContact Email: ${email}\nBest Regards,\n${fullName}`, // Email content
     };
 

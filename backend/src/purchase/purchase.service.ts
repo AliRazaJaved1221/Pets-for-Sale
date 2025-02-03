@@ -5,16 +5,15 @@ import * as nodemailer from 'nodemailer';
 export class PurchaseService {
   private transporter;
 
-  // Simulate a database for purchased pets
   private purchasedPets = [];
   constructor() {
     this.transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com', // Explicit Gmail SMTP host
-      port: 465, // SSL port
-      secure: true, // Use SSL
+      host: 'smtp.gmail.com', 
+      port: 465, 
+      secure: true, 
       auth: {
         user: 'petsforsale.official@gmail.com',
-        pass: 'miop cmic enkb jmbn', // App Password
+        pass: 'miop cmic enkb jmbn', 
       },
     });
   }
@@ -44,7 +43,6 @@ export class PurchaseService {
 
     const purchaseDate = new Date().toLocaleDateString();
 
-    // Save the purchase details (simulate storing in a database)
     this.purchasedPets.push({
       buyerFirstName,
       buyerLastName,
@@ -90,7 +88,7 @@ export class PurchaseService {
   }
 
   async getPurchasedPets(): Promise<any[]> {
-    // Return all purchased pets
+
     return this.purchasedPets;
   }
 
